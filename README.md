@@ -4,7 +4,7 @@ All solutions are my own algorithms
 
 It may not be perfect :)
 
-If you have better solutions, welcome to contact: 
+If you have better solutions, please email: 
 ay701@nyu.edu
 
-I am Keeping this session updated often
+I am having more challenges on...
