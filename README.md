@@ -1,6 +1,8 @@
 # Coding_Challenges
 
-All the solutions are my own algorithms
+All solutions are my own algorithms
+
+It may not be perfect :)
 
 If you have better solutions, welcome to contact: 
 ay701@nyu.edu
