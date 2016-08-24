@@ -1,5 +1,8 @@
 # Coding_Challenges
 
-All the solutions are from my algorithms
+All the solutions are my own algorithms
 
-Keep updating all the time
+If you have better solutions, welcome to contact: 
+ay701@nyu.edu
+
+I am Keeping this session updated often
