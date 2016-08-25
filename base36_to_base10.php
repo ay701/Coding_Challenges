@@ -1,4 +1,6 @@
 <?php
+// Blue Bite
+// Convert 36 number to 10
 
 function base36_to_base10($input){
 
