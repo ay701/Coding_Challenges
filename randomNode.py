@@ -1,3 +1,6 @@
+# Using reservior sampling
+# set sample size 1
+
 import random
 
 class ListNode(object):
