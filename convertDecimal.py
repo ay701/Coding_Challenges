@@ -1,6 +1,9 @@
 #######################################
 # Convert decimal to other base number
 # hint: use stack
+# Example: 321 -> 101000001 (binary)
+#          321 -> 501 (octal)
+#          321 -> 141 (hex)
 #######################################
 
 def convertDecimal(data, base):
@@ -10,7 +13,6 @@ def convertDecimal(data, base):
        rem = data%base 
        stack.append(rem)
        data = data//base
-       print stack
 
     output = ""
 
@@ -20,5 +22,7 @@ def convertDecimal(data, base):
     return output
 
 print(convertDecimal(321,2))
+print(convertDecimal(321,8))
+print(convertDecimal(321,16))
 
        
