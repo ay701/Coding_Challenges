@@ -1,6 +1,5 @@
 # Design NYC subway system, find shortest path between two stops
-# Imagine subway system as a graph
-# Adding lines is equal to adding edges and nodes
+# Imagine subway system as a graph, adding lines is equal to adding edges & nodes
 # Use Dijkstra's algorithm to calculate the shortest paths
 # Use heap to keep shortest time
 # Use back-trace to find out shortest path
@@ -12,8 +11,9 @@ import heapq
 
 class Subway_system:
     
-    # Set default time between stops to 1min
+    # Assume default time between stops is 1 min
     default_interval = 1
+    use_default = True
     
     def __init__(self, name):
         self.lines = []
@@ -48,6 +48,7 @@ class Subway_system:
                 previous_name = previous.get_name()
                 
                 if time_between_stations:
+                    Subway_system.use_default = False
                     interval = time_between_stations[ind-1][2]
                 else:
                     interval = Subway_system.default_interval
@@ -108,8 +109,11 @@ class Subway_system:
         self.shortest(last_stop, path, total_time)
     
         # Reverse order, output result
-        print (path[::-1], total_time)
-    
+        if Subway_system.use_default : 
+            return path[::-1]
+
+        return (path[::-1], total_time)
+        
     @staticmethod 
     def shortest(stop, path, total_time):
         ''' make shortest path from stop.previous'''
@@ -170,33 +174,50 @@ class Stop(object):
     def __str__(self):
         return str(self.name) + ' adjacent: ' + str([x.name for x in self.neighbors])
         
+
+#################################################
+# Create 2 Unit Testcases and put into Test Suite
+#################################################
+import unittest
+ 
+class Testcase_1(unittest.TestCase):
+ 
+    def setUp(self):
+        self.subway_system = Subway_system(name="NYC MTA Subway")
+        self.subway_system.add_train_line(stops=["Canal", "Houston", "Christopher", "14th"], name="1")
+        self.subway_system.add_train_line(stops=["Spring", "West 4th", "14th", "23rd"], name="E")
+
+    def test_take_train_1(self):
+        self.assertEqual( self.subway_system.take_train(origin="Houston", destination="23rd"), ["Houston", "Christopher", "14th", "23rd"] )
         
+class Testcase_2(unittest.TestCase):
+ 
+    def setUp(self):
+        self.subway_system = Subway_system(name="NYC MTA Subway")
+        self.subway_system.add_train_line(stops=["Canal", "Houston", "Christopher", "14th"], name="1",
+                time_between_stations=[("Canal", "Houston", 3),
+                                     ("Houston", "Christopher", 7),
+                                     ("Christopher", "14th", 2),
+                                     ])
+
+        self.subway_system.add_train_line(stops=["Spring", "West 4th", "14th", "23rd"], name="E",
+                    time_between_stations=[("Spring", "West 4th", 1),
+                                     ("West 4th", "14th", 5),
+                                     ("14th", "23rd", 2),
+                                     ])
+
+    def test_take_train_2(self):
+        self.assertEqual( self.subway_system.take_train(origin="Houston", destination="23rd"), (["Houston", "Christopher", "14th", "23rd"], 11) )
+
 if __name__ == '__main__':
     
-    subway_system = Subway_system(name="NYC MTA Subway")
-    print subway_system
-    
-    # subway_system.add_train_line(stops=["Rockaway","Nostrand Ave","Utica Ave"],name="A")
-    # subway_system.add_train_line(stops=["8th Ave","Atlantic Ave","Canal St","42th St Time Square","57th St","Columbia University"],name="N")
-    # subway_system.add_train_line(stops=["Atlantic Ave","Columbia University","Forest Hill"],name="Q",time_between_stations=[("Atlantic Av", "Columbia Universit", 1),
-    #                              ("Columbia Universit", "Forest Hill", 1)
-    #                              ])
-    # # print subway_system.take_train("Rockaway","Nostrand Ave")
-    # subway_system.take_train("8th Ave","Columbia University")
-    # system.print_stops()
-    
-    subway_system.add_train_line(stops=["Canal", "Houston", "Christopher", "14th"], name="1",
-          time_between_stations=[("Canal", "Houston", 3),
-                                 ("Houston", "Christopher", 7),
-                                 ("Christopher", "14th", 2),
-                                 ])
-    subway_system.add_train_line(stops=["Spring", "West 4th", "14th", "23rd"], name="E",
-          time_between_stations=[("Spring", "West 4th", 1),
-                                 ("West 4th", "14th", 5),
-                                 ("14th", "23rd", 2),
-                                 ])
-    
-    print "The shortest Path from '%s' to '%s' " % ("Houston", "23rd") 
-    subway_system.take_train(origin="Houston", destination="23rd")
-    # returns (["Houston", "Christopher", "14th", "23rd"], 11)
+    """
+        Gather all the tests from this module in a test suite.
+    """
+    test_suite = unittest.TestSuite()
+    test_suite.addTest(unittest.makeSuite(Testcase_1))
+    test_suite.addTest(unittest.makeSuite(Testcase_2))
+    runner = unittest.TextTestRunner()
+    runner.run(test_suite)
+
 
