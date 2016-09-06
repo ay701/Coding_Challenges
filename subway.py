@@ -3,7 +3,8 @@
 # Imagine subway system as a graph
 # Adding lines is equal to adding edges and nodes
 # Use Dijkstra's algorithm to calculate the shortest paths
-# In the end, use back-trace to find out shortest path
+# Use heap to keep shortest distance
+# Use back-trace to find out shortest path
 # Date: 2016-09-04 
 # Authour: ay701@nyu.edu
 
