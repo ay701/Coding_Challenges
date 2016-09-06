@@ -1,3 +1,4 @@
+############################################################################################
 # Design NYC subway system, find shortest path between two stops
 # Imagine subway system as a graph, adding lines is equal to adding edges & nodes
 # Use Dijkstra's algorithm to calculate the shortest paths
@@ -5,6 +6,7 @@
 # Use back-trace to find out shortest path
 # Authour: ay701@nyu.edu
 # Date: 2016-09-04 
+############################################################################################
 
 import sys
 import heapq
@@ -184,30 +186,71 @@ class Testcase_1(unittest.TestCase):
  
     def setUp(self):
         self.subway_system = Subway_system(name="NYC MTA Subway")
-        self.subway_system.add_train_line(stops=["Canal", "Houston", "Christopher", "14th"], name="1")
-        self.subway_system.add_train_line(stops=["Spring", "West 4th", "14th", "23rd"], name="E")
+
+        stops=["Canal", "Houston", "Christopher", "14th"]
+        name="1"
+
+        print '\nTest: subway_system.add_train_line'
+        print 'Input: stops="%s", name="%s"' %(stops, name)
+        self.subway_system.add_train_line(stops, name)
+        print 'Line added.'
+
+        stops=["Spring", "West 4th", "14th", "23rd"]
+        name="E"        
+        print '\nTest: subway_system.add_train_line'
+        print 'Input: stops="%s", name="%s"' %(stops, name)
+        self.subway_system.add_train_line(stops, name)
+        print 'Line added.'
 
     def test_take_train_1(self):
-        self.assertEqual( self.subway_system.take_train(origin="Houston", destination="23rd"), ["Houston", "Christopher", "14th", "23rd"] )
+        origin="Houston"
+        destination="23rd"
+        result=["Houston", "Christopher", "14th", "23rd"]
+        
+        print '\nTest: subway_system.take_train'
+        print 'Input: origin="%s", destination="%s"' %(origin, destination)
+        print 'Output: %s\n' %(result,)
+
+        self.assertEqual( self.subway_system.take_train(origin, destination), result )
+
         
 class Testcase_2(unittest.TestCase):
  
     def setUp(self):
         self.subway_system = Subway_system(name="NYC MTA Subway")
-        self.subway_system.add_train_line(stops=["Canal", "Houston", "Christopher", "14th"], name="1",
-                time_between_stations=[("Canal", "Houston", 3),
-                                     ("Houston", "Christopher", 7),
-                                     ("Christopher", "14th", 2),
-                                     ])
 
-        self.subway_system.add_train_line(stops=["Spring", "West 4th", "14th", "23rd"], name="E",
-                    time_between_stations=[("Spring", "West 4th", 1),
-                                     ("West 4th", "14th", 5),
-                                     ("14th", "23rd", 2),
-                                     ])
+        stops=["Canal", "Houston", "Christopher", "14th"]
+        name="1",
+        time_between_stations=[("Canal", "Houston", 3),
+                             ("Houston", "Christopher", 7),
+                             ("Christopher", "14th", 2),
+                             ]
+        print '\nTest: subway_system.add_train_line'
+        print 'Input: stops="%s", name="%s", time_between_stations=%s' %(stops, name, time_between_stations)
+        self.subway_system.add_train_line(stops, name, time_between_stations)
+        print 'Line added.'
+
+        stops=["Spring", "West 4th", "14th", "23rd"]
+        name="E"
+        time_between_stations=[("Spring", "West 4th", 1),
+                             ("West 4th", "14th", 5),
+                             ("14th", "23rd", 2),
+                             ]
+        print '\nTest: subway_system.add_train_line'
+        print 'Input: stops="%s", name="%s", time_between_stations=%s' %(stops, name, time_between_stations)
+        self.subway_system.add_train_line(stops, name, time_between_stations)
+        print 'Line added.'
 
     def test_take_train_2(self):
-        self.assertEqual( self.subway_system.take_train(origin="Houston", destination="23rd"), (["Houston", "Christopher", "14th", "23rd"], 11) )
+        origin="Houston"
+        destination="23rd"
+        result=(["Houston", "Christopher", "14th", "23rd"], 11)
+        
+        print '\nFunction: subway_system.take_train'
+        print 'Input: origin="%s", destination="%s"' %(origin, destination)
+        print 'Output: %s\n' %(result,)
+
+        self.assertEqual( self.subway_system.take_train(origin, destination), result )
 
 if __name__ == '__main__':
     
@@ -215,8 +258,14 @@ if __name__ == '__main__':
         Gather all the tests from this module in a test suite.
     """
     test_suite = unittest.TestSuite()
-    test_suite.addTest(unittest.makeSuite(Testcase_1))
-    test_suite.addTest(unittest.makeSuite(Testcase_2))
+    print "\nHi, welcome to subway system\n"
+    challenge = input("Which Challenge you want to run, 1 or 2 ?\n")
+    
+    if challenge==1:
+        test_suite.addTest(unittest.makeSuite(Testcase_1))
+    elif challenge==2:
+        test_suite.addTest(unittest.makeSuite(Testcase_2))
+    
     runner = unittest.TextTestRunner()
     runner.run(test_suite)
 
