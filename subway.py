@@ -3,7 +3,7 @@
 # Imagine subway system as a graph
 # Adding lines is equal to adding edges and nodes
 # Use Dijkstra's algorithm to calculate the shortest paths
-# Use heap to keep shortest distance
+# Use heap to keep shortest time
 # Use back-trace to find out shortest path
 # Date: 2016-09-04 
 # Authour: ay701@nyu.edu
@@ -70,14 +70,14 @@ class Subway_system:
             sys.exit()
         
         start_stop = self.get_stop(origin)
-        start_stop.set_distance(0)
+        start_stop.set_time(0)
         
-        unvisited_stops = [(stop.get_distance(),stop) for stop in self]
+        unvisited_stops = [(stop.get_time(),stop) for stop in self]
         heapq.heapify(unvisited_stops)
         
         while len(unvisited_stops):
             
-            # Pops a stop with the smallest distance 
+            # Pops a stop with the shortest time
             current = heapq.heappop(unvisited_stops)[1]
             current_stop_name = current.get_name()
             current.set_visited()
@@ -88,11 +88,11 @@ class Subway_system:
                 if next.visited:
                     continue
                 
-                new_dist = current.get_distance() + current.get_interval(next)   
+                new_time = current.get_time() + current.get_interval(next)   
                 next_stop_name = next.get_name()
                 
-                if new_dist < next.get_distance():
-                    next.set_distance(new_dist)
+                if new_time < next.get_time():
+                    next.set_time(new_time)
                     next.set_previous(current)
                     
             # Clean the heap
@@ -100,24 +100,24 @@ class Subway_system:
                 heapq.heappop(unvisited_stops)
                 
             # Put unvisited stops into the list
-            unvisited_stops = [(stop.get_distance(),stop) for stop in self if not stop.visited]
+            unvisited_stops = [(stop.get_time(),stop) for stop in self if not stop.visited]
             heapq.heapify(unvisited_stops)
         
         last_stop = self.get_stop(destination)
         path = [last_stop.get_name()]
-        total_distance = last_stop.get_distance()
-        self.shortest(last_stop, path, total_distance)
+        total_time = last_stop.get_time()
+        self.shortest(last_stop, path, total_time)
     
         # Reverse order, output result
-        print (path[::-1], total_distance)
+        print (path[::-1], total_time)
     
     @staticmethod 
-    def shortest(stop, path, total_distance):
+    def shortest(stop, path, total_time):
         ''' make shortest path from stop.previous'''
         if stop.previous:
             path.append(stop.previous.get_name())
-            total_distance += stop.previous.get_distance()
-            Subway_system.shortest(stop.previous, path,total_distance)
+            total_time += stop.previous.get_time()
+            Subway_system.shortest(stop.previous,path,total_time)
         return
     
     def print_stops(self):
@@ -130,16 +130,16 @@ class Stop(object):
     def __init__(self,name,line):
         self.name = name
         self.neighbors = {}
-        self.distance = sys.maxint
+        self.time_ = sys.maxint
         self.visited = False
         self.previous = None
         self.lines = [line]
             
-    def get_distance(self):
-        return self.distance
+    def get_time(self):
+        return self.time_
 
-    def set_distance(self, distance):
-        self.distance = distance
+    def set_time(self, time_):
+        self.time_ = time_
 
     def get_interval(self, neighbor):
         return self.neighbors[neighbor]
