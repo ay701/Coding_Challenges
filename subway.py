@@ -1,12 +1,11 @@
-#######################################################################
-# Design NYC subway system, to find out shortest path between two stops
+# Design NYC subway system, find shortest path between two stops
 # Imagine subway system as a graph
 # Adding lines is equal to adding edges and nodes
 # Use Dijkstra's algorithm to calculate the shortest paths
 # Use heap to keep shortest time
 # Use back-trace to find out shortest path
-# Date: 2016-09-04 
 # Authour: ay701@nyu.edu
+# Date: 2016-09-04 
 
 import sys
 import heapq
@@ -124,6 +123,9 @@ class Subway_system:
         for stop,obj in self.stop_dict.iteritems():
             obj.print_neighbors()
         
+    def __str__(self):
+        return '\nWelcome to ' + str(self.name) + '\n-------------------------------'
+
 class Stop(object):
 
     def __init__(self,name,line):
@@ -172,6 +174,7 @@ class Stop(object):
 if __name__ == '__main__':
     
     subway_system = Subway_system(name="NYC MTA Subway")
+    print subway_system
     
     # subway_system.add_train_line(stops=["Rockaway","Nostrand Ave","Utica Ave"],name="A")
     # subway_system.add_train_line(stops=["8th Ave","Atlantic Ave","Canal St","42th St Time Square","57th St","Columbia University"],name="N")
@@ -193,7 +196,7 @@ if __name__ == '__main__':
                                  ("14th", "23rd", 2),
                                  ])
     
-    print "\nShortest Path from '%s' to '%s' " % ("Houston", "23rd") 
+    print "The shortest Path from '%s' to '%s' " % ("Houston", "23rd") 
     subway_system.take_train(origin="Houston", destination="23rd")
     # returns (["Houston", "Christopher", "14th", "23rd"], 11)
 
