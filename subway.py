@@ -1,3 +1,5 @@
+#######################################################################
+# Design NYC subway system, to find out shortest path between two stops
 # Imagine subway system as a graph
 # Adding lines is equal to adding edges and nodes
 # Use Dijkstra's algorithm to calculate the shortest paths
@@ -10,6 +12,7 @@ import heapq
 
 class Subway_system:
     
+    # Set default time between stops to 1min
     default_interval = 1
     
     def __init__(self, name):
