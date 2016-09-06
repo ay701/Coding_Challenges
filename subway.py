@@ -105,7 +105,7 @@ class Subway_system:
         total_distance = last_stop.get_distance()
         self.shortest(last_stop, path, total_distance)
     
-        # Reverse order
+        # Reverse order, output result
         print (path[::-1], total_distance)
     
     @staticmethod 
