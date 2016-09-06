@@ -123,7 +123,6 @@ class Subway_system:
     def print_stops(self):
         for stop,obj in self.stop_dict.iteritems():
             obj.print_neighbors()
-
         
 class Stop(object):
 
