@@ -46,7 +46,6 @@ class Subway_system:
                 new_stop = self.stop_dict[stop]
             
             if previous:
-                
                 previous_name = previous.get_name()
                 
                 if time_between_stations:
@@ -59,7 +58,7 @@ class Subway_system:
             
             previous = new_stop
             
-    # "top" object as iteration result
+    # Set "stop" object for iteration return
     def __iter__(self):
         return iter(self.stop_dict.values())
             
