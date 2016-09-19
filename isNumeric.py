@@ -7,7 +7,6 @@ def isNumeric(data):
     for i in range(len(data)):
    
         if data[i] not in [".","0","1","2","3","4","5","6","7","8","9"]:
-            print data
             return False
 
         # point cannot be at start of string
