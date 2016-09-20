@@ -36,11 +36,13 @@ class Browser:
         self.cur_url = url
 
     def forward(self):
-        self.b_s.push(self.cur_url)
-        self.cur_url = self.f_s.pop()
+        if not f_s.isEmpty():
+            self.b_s.push(self.cur_url)
+            self.cur_url = self.f_s.pop()
 
     def backward(self):
-        self.f_s.push(self.cur_url)
-        self.cur_url = self.b_s.pop()
+        if not b_s.isEmpty():
+            self.f_s.push(self.cur_url)
+            self.cur_url = self.b_s.pop()
 
 
