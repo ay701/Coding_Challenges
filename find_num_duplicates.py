@@ -31,10 +31,7 @@ def find_num_duplicates(s):
             output += cur if cnt==1 else cur + str(cnt)
             cnt = 0
 
-        if i==ln-2:
-            cnt += 1
-
-    output += nex if cnt==1 else nex + str(cnt)
+    output += nex if cur!=nex else cur + str(cnt+1)
 
     return output       
     
