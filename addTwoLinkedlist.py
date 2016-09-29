@@ -44,6 +44,9 @@ def addTwoLinkedlist(head1, head2):
             head2 = head2.next
             cur = cur.next
 
+    if flag == 1:
+    	cur.next = Node(1)
+
     return fake.next
 
 
