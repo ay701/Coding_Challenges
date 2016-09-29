@@ -1,8 +1,8 @@
 # Coding_Challenges
 
-All solutions are based on own original algorithms
+All solutions are based on own approach, original algorithms
 
-Nothing is perfect, I keep polishing.
+Nothing is perfect, I keep polishing, organic is the rule :)
 
 Welcome better solutions: ay701@nyu.edu
 
