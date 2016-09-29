@@ -2,7 +2,7 @@
 
 All solutions are based on own approaches + original algorithms
 
-Nothing is perfect, but I do polish, because organic is the great :)
+Nothing is perfect, but I always polish, because organic is great :)
 
 Welcome better solutions: ay701@nyu.edu
 
