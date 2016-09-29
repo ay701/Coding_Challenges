@@ -1,6 +1,6 @@
 # Coding_Challenges
 
-All solutions are based on own approach, original algorithms
+All solutions are based on own approaches + original algorithms
 
 Nothing is perfect, I keep polishing, organic is the rule :)
 
