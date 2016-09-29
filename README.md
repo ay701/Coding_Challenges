@@ -8,4 +8,4 @@ Welcome for any better solutions: ay701@nyu.edu
 
 More challenges are coming up ...
 
-My philosophy : Simple is the best!
+One philosophy : Simple is the best!
