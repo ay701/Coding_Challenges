@@ -12,7 +12,7 @@ def countWords(input):
    start = 0
    dic = {}  # key -> length of word, val -> occurence
    
-   for i, nex in enumerate(1,len(input)):
+   for i, nex in enumerate(input[1:]):
        # cur = "h"
        # nex =  "e" 
        # output = 0
