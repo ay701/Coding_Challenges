@@ -31,7 +31,7 @@ def countWords(input):
        cur = nex
        
     if input[-1]!=" ":
-       k = len(len(input)-input[start]-1)
+       k = len(input)-start-1
        dic[k] = dic.get(k,0)+1
 
     cnt = 0
