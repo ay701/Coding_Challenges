@@ -6,6 +6,6 @@ Nothing's perfect, I always polish, because organic is great :)
 
 Welcome for any better solutions: ay701@nyu.edu
 
-More challenges are coming up ...
+More challenges are coming up!
 
 One philosophy : Simple is the best!
