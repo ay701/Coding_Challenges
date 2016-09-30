@@ -4,8 +4,8 @@ def combineArrays(L1, L2):
     L = L1 + L2
     # L.sort()
     L = mergeSort(L)
-    print L
-    exit()
+    #print L
+    #exit()
     
     if len(L)<=1:
     	return L
