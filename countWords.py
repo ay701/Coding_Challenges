@@ -13,21 +13,18 @@ def countWords(input):
    dic = {}  # key -> length of word, val -> occurence
    
    for i, nex in enumerate(input[1:]):
-       # cur = "h"
-       # nex =  "e" 
-       # output = 0
+       # cur = "t"
+       # nex =  "h"
    
-       if nex==" ":  
-           if cur!=" ": 
-               # length of word
-               k = len(input[i]-input[start])
+       if nex==" " and cur!=" ":
+           # length of word
+           k = len(input[i]-input[start])
                
-               dic[k] = dic.get(k,0)+1
-               # 5 -> 1
-               # 5 -> 2
+           dic[k] = dic.get(k,0)+1
+           # 3 -> 1
+           # 3 -> 2
                
-               # output += 1
-               start = i
+           start = i
            
        cur = nex
        
@@ -36,14 +33,14 @@ def countWords(input):
        dic[k] = dic.get(k,0)+1
 
     cnt = 0
-    ret = -1
+    ret = 0
 
     for k, v in dic.items():
       if v>cnt:
           cnt = v 
           ret = k
        
-   return None if ret == -1 else ret
+   return ret
    
 test_input = "hello world"
 test_input = "hello world "
