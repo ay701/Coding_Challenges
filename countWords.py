@@ -1,7 +1,7 @@
-# Write a method that takes in a String and returns the number of words in the String.
+# Write a method that takes in a String and returns the length of most common length of words in the String.
 # Audible interview
-# input = "hello world"
-# input = "it's me"
+# "the dog went to the big store" -> 3
+# "the the the went town mark holt stop" -> 4
 
 def countWords(input):
    
@@ -48,10 +48,6 @@ def countWords(input):
 test_input = "hello world"
 test_input = "hello world "
 print countWords(test_input)
-
-# "the dog went to the big store" -> 3
-# "the the the went town mark holt stop" -> 4
-
 
 
 
