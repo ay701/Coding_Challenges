@@ -1,3 +1,13 @@
+# Example: "O" wins
+#  
+#  X | O | O
+# --- --- ---
+#  X | O | X
+# --- --- ---
+#  O  | X | X
+#
+# Time complexity: O(1)
+
 class ticTacToe:
     def __init__(self, leng):
         self.leng = leng
