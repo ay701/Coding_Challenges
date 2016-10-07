@@ -40,10 +40,37 @@ class ticTacToe:
 
         return None
 
-t = ticTacToe(3)
+# t = ticTacToe(3)
+# print t.move(0,0,"X")
+# print t.move(0,1,"X")
+# print t.move(0,2,"O")
+# print t.move(1,1,"X")
+# print t.move(1,2,"X")
+# print t.move(2,2,"X")
+
+import collections
+
+class ticTacToe2:
+
+    def __init__(self, n):
+        self.cntr = collections.Counter()
+        self.leng = n
+
+    def move(self, r, c, player):
+        
+        for i, x in enumerate( (r,c,r-c,r+c) ):
+            self.cntr[i,x,player] += 1
+
+            if self.cntr[i,x,player]==self.leng:
+            	return player
+
+        return None
+
+t = ticTacToe2(3)
 print t.move(0,0,"X")
 print t.move(0,1,"X")
 print t.move(0,2,"O")
 print t.move(1,1,"X")
 print t.move(1,2,"X")
 print t.move(2,2,"X")
+
