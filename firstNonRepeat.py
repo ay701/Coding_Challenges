@@ -17,3 +17,27 @@ def firstUniqueChar(data):
         
         
 print firstUniqueChar("xxyyz")
+
+def firstNoneRepeat(s):
+
+    if len(s)<=1:
+        return s
+
+    cnt = 1
+    cur = s[0]
+
+    for nex in s[1:]:
+        
+        if cur!=nex:
+            if cnt==1:
+                return cur
+            else:
+                cnt = 1
+        else:
+            cnt += 1
+        
+        cur = nex
+
+    return None
+
+print firstNoneRepeat("xxyyzzzzzzpuuiiiiiiioo")
