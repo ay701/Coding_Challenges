@@ -1,3 +1,9 @@
+################################
+# 1. Reverse the whole string
+# 2. Reverse each word
+################################
+
+
 def reverseWordsInString(data):
  
     output = []
@@ -10,6 +16,7 @@ def reverseWordsInString(data):
             output.append(reverse(data[prev:cur]))
             output.append(" ")
             prev = cur
+            #print output
 
     output.append(reverse(data[prev+1:cur+1]))
 
