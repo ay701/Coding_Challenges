@@ -3,58 +3,52 @@
 # "the dog went to the big store" -> 3
 # "the the the went town mark holt stop" -> 4
 
+# Can we use built-in function, split, join?
+
 def countWords(input):
    
-   if len(input)==0 or input==" ":   
-       return 0    
-       
-   cur = input[0]   # cur = "h"
-   start = 0
-   dic = {}  # key -> length of word, val -> occurence
+    input = input.strip()
+    leng = len(input)
+
+    if leng<2:   
+        return leng    
    
-   for i, nex in enumerate(input[1:]):
-       # cur = "t"
-       # nex =  "h"
+    start = 0
+    max_occurence = 0
+    max_leng = []
+    dic = {}
+
+    for i in range(leng-2):
+
+        cur = input[i]
+        nex = input[i+1]
    
-       if nex==" " and cur!=" ":
-           # length of word
-           k = len(input[i]-input[start])
+        if cur!=" " and nex==" ":
+
+            k = i-start+1
                
-           dic[k] = dic.get(k,0)+1
-           # 3 -> 1
-           # 3 -> 2
-               
-           start = i
+            dic[k] = dic.get(k,0)+1
+            start = i+2
+
+            if dic[k] > max_occurence:
+                max_leng = [k]
+                max_occurence = dic[k]
+            elif dic[k] == max_occurence:
+                max_leng.append(k)
            
-       cur = nex
+        cur = nex
        
-    if input[-1]!=" ":
-       k = len(input)-start-1
-       dic[k] = dic.get(k,0)+1
+    k = leng-start
+    dic[k] = dic.get(k,0)+1
 
-    cnt = 0
-    ret = 0
+    if dic[k] > max_occurence:
+        max_leng = [k]
+        max_occurence = dic[k]
+    elif dic[k] == max_occurence:
+        max_leng.append(k)
 
-    for k, v in dic.items():
-      if v>cnt:
-          cnt = v 
-          ret = k
-       
-   return ret
+    return max_leng
    
-test_input = "hello world"
-test_input = "hello world "
-print countWords(test_input)
 
-
-
-
-
-
-
-
-
-
-
-
-
+s = "the dog is a superb animal" # 3
+print countWords(s)
