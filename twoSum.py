@@ -16,5 +16,22 @@ def two_sum(arr,targ):
 
 a = (2,7,1,15)
 t = 9
-print(two_sum(a,t))
+# print(two_sum(a,t))
 # (1,2)
+
+# Use dic.get, not Exception
+
+def twoSum_(l, n):
+
+    dic = {}
+
+    for i, e in enumerate(l):
+        k = n - e
+        if dic.get(k) is None:
+            dic[e] = i
+        else:
+            return (i+1, dic[k]+1)
+
+    return None
+
+print twoSum_([1,2,3,4,3,8], 9)
