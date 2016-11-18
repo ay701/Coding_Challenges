@@ -5,7 +5,7 @@
 
 # Can we use built-in function, split, join?
 
-def countWords(input):
+def mostCommonLengthWords(input):
    
     input = input.strip()
     leng = len(input)
