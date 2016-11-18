@@ -1,10 +1,7 @@
-# Write a method that takes in a String and returns the length of most common length of words in the String.
-# Audible
-# "the dog went to the big store" -> 3
-# "the the the went town mark holt stop" -> 4
-
+# Write a method that takes in a String and returns the length of most common length of words in the String. // Audible
+# Test case : "the dog went to the big store" -> 3
+# Test case : "the the the went town mark holt stop" -> 4
 # Can we use built-in function, split, join?
-
 # Consider the result could be a list of length
 from collections import defaultdict
 
