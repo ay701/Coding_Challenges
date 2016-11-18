@@ -5,6 +5,38 @@
 
 # Can we use built-in function, split, join?
 
+# Consider the result could be a list of length
+from collections import defaultdict
+
+def mostCommonLengthWords(st):
+    dic = defaultdict(int)
+    leng = []
+    cnt = 0
+
+    l = st.split()
+
+    for s in l:
+        # s = s.strip(",.- ")
+
+        # Use raw instead of strip
+        s = s[:-1] if ord(s[-1]) not in range(65,91) and ord(s[-1]) not in range(97,123) else s
+        s = s[1:] if ord(s[0]) not in range(65,91) and ord(s[0]) not in range(97,123) else s
+        # print s 
+
+        n = len(s)
+        dic[n] += 1
+
+        if dic[n]>cnt:
+            cnt = dic[n]
+            leng = [n]
+        elif dic[n]==cnt:
+            leng.append(n)
+
+    return leng
+
+print mostCommonLengthWords(s)
+
+
 def mostCommonLengthWords(input):
    
     input = input.strip()
@@ -50,5 +82,7 @@ def mostCommonLengthWords(input):
     return max_leng
    
 
-s = "the dog is a superb animal" # 3
-print countWords(s)
+s = "-the dog is a superb animals" # 3
+# print countWords(s)
+
+
