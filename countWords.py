@@ -1,5 +1,5 @@
 # Write a method that takes in a String and returns the length of most common length of words in the String.
-# Audible interview
+# Audible
 # "the dog went to the big store" -> 3
 # "the the the went town mark holt stop" -> 4
 
