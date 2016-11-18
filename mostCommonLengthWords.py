@@ -3,6 +3,7 @@
 # Test case : "the the the went town mark holt stop" -> 4
 # Can we use built-in function, split, join?
 # Consider the result could be a list of length
+
 from collections import defaultdict
 
 def mostCommonLengthWords(st):
@@ -33,52 +34,45 @@ def mostCommonLengthWords(st):
 
 print mostCommonLengthWords(s)
 
-
-def mostCommonLengthWords(input):
+# Original way, use pointers, without split function
+def mostCommonLengthWords(st):
    
-    input = input.strip()
-    leng = len(input)
+    st = st.strip()
+    n = len(st)
 
-    if leng<2:   
-        return leng    
+    if n<2:   
+        return n    
    
     start = 0
-    max_occurence = 0
-    max_leng = []
-    dic = {}
+    cnt = 0
+    leng = []
+    dic = defaultdict(int)
 
-    for i in range(leng-2):
-
-        cur = input[i]
-        nex = input[i+1]
+    for i in range(n):
    
-        if cur!=" " and nex==" ":
+        if st[i]==" ":
 
-            k = i-start+1
-               
-            dic[k] = dic.get(k,0)+1
-            start = i+2
+            k = i-start # get length
+            dic[k] += 1
+            start = i+1
 
-            if dic[k] > max_occurence:
-                max_leng = [k]
-                max_occurence = dic[k]
-            elif dic[k] == max_occurence:
-                max_leng.append(k)
-           
-        cur = nex
+            if dic[k] > cnt:
+                leng = [k]
+                cnt = dic[k]
+            elif dic[k] == cnt:
+                leng.append(k)
        
     k = leng-start
-    dic[k] = dic.get(k,0)+1
+    dic[k] += 1
 
-    if dic[k] > max_occurence:
-        max_leng = [k]
-        max_occurence = dic[k]
-    elif dic[k] == max_occurence:
-        max_leng.append(k)
+    if dic[k] > cnt:
+        leng = [k]
+        cnt = dic[k]
+    elif dic[k] == cnt:
+        leng.append(k)
 
-    return max_leng
+    return leng
    
-
 s = "-the dog is a superb animals" # 3
 # print countWords(s)
 
