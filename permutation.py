@@ -1,26 +1,42 @@
+# Recursion
+
 def permutation(st):
+    if len(st)<=1:
+        return st
 
-    n = len(st)
+    output = []
 
-    for i in range(n):
-        for j in range(n):
-            print st[i] + st[0:i] + st[i+1:]
-            print st[0:i+1] + st[i] + st[i+1:]
-            print st[i+1:] + st[0:i] + st[i]
+    for i, e in enumerate(st):
+        for p in permutation(st[:i]+st[i+1:]):
+            output.append(p+e)
 
-#print permutation('yes')
+    return output
 
-def permutation_recur(prefix,st):
+# print permutation("yesa")
 
-    cnt = len(st)
+# Iteration
 
-    if cnt==0 :
-        print prefix
-    else:
-        for i in range(cnt):
-            permutation_recur(prefix+st[i],st[0:i]+st[i+1:])
+def permute_iter(st):
+    
+    length = len(st)
 
-#print permutation_recur('','hi')
-print permutation_recur('','hie')
-#print permutation_recur('','hiar')
-#print permutation_recur('','135')
+    if length<=1:
+        return st
+    
+    output = [st[0]]
+    st = st[1:]
+    tmp = []
+    
+    for i, e in enumerate(st):
+        for p in output:
+            for j in range(len(p)):
+                # print tmp, e
+                tmp.append(p[0:j]+e+p[j:])
+            tmp.append(p+e)
+
+        output = tmp
+        tmp = []
+
+    return output
+
+print permute_iter("yesd")
