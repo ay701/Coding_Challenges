@@ -11,10 +11,21 @@ def bubbleSort(data):
         for j in range(i):
             if data[j]>data[j+1]:
                 exchange = True
-                temp = data[j+1]
-                data[j+1] = data[j]
-                data[j] = temp
+                data[j], data[j+1] = data[j+1], data[j]
 
     return data
 
 print bubbleSort([4,3,5,1,2,0])
+
+
+def bubbleSort_(data):
+    length = len(data)
+
+    for i in range(length):
+        for j in range(1,length-i):
+            if data[j-1]>data[j]:
+                data[j], data[j-1] = data[j-1], data[j]
+
+    return data
+
+print bubbleSort_([4,3,5,1,2,0])
