@@ -1,5 +1,4 @@
-# If grid is connected
-# altschool interview
+# If grid is connected / altschool 
 #
 # grid = [[0, 0, 1],
 #         [0, 0, 1],
@@ -20,7 +19,7 @@ def ifConnected(grid):
         n = len(grid)
         # Returns a list of cells that are adjacent.
         candidates = [(x-1,y),(x+1,y),(x,y-1),(x,y+1)]
-        return [c for c in candidates if c[0] in range(n) and c[1] in range(n) and grid[c[0]][c[1]]==1]
+        return [(x,y) for x,y in candidates if x in range(n) and y in range(n) and grid[x][y]==1]
     
     cnt = 0 # Total non-empty cells
     cells = [] # DFS stack
@@ -37,7 +36,7 @@ def ifConnected(grid):
     while len(cells)>0:
         cell = cells.pop(0)
         checked_cells.append(cell)
-        cells.extend([x for x in neighbors(cell[0],cell[1]) if x not in checked_cells])
+        cells += [x for x in neighbors(cell[0],cell[1]) if x not in checked_cells]
 
     # print cnt, len(checked_cells)
     return cnt==len(checked_cells)
@@ -50,8 +49,8 @@ grid = [[1, 0, 1],
         [0, 0, 1],
         [0, 1, 1]]
 
-# grid = [[0, 0, 1],
-#         [0, 0, 1],
-#         [0, 1, 1]]
+grid = [[0, 0, 1],
+        [0, 0, 1],
+        [0, 1, 1]]
 
 print ifConnected(grid)
