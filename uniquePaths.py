@@ -4,7 +4,6 @@
 # How many possible unique paths are there? Above is a 3 x 7 grid. 
 # How many possible unique paths are there? Note: m and n will be at most 100.
 
-
 # @return an integer
 def uniquePaths(m, n):
     if m == 1 and n == 1:
