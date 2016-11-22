@@ -4,22 +4,28 @@
 # How many possible unique paths are there? Above is a 3 x 7 grid. 
 # How many possible unique paths are there? Note: m and n will be at most 100.
 
-class Solution:
-    # @return an integer
-    def c(self, m, n):
-        mp = {}
-        for i in range(m):
-            for j in range(n):
-                if(i == 0 or j == 0):
-                    mp[(i, j)] = 1
-                else:
-                    mp[(i, j)] = mp[(i - 1, j)] + mp[(i, j - 1)]
-        return mp[(m - 1, n - 1)]
 
-    def uniquePaths(self, m, n):
-        return self.c(m, n)
+# @return an integer
+def uniquePaths(m, n):
+    if m == 1 and n == 1:
+        list = [[1]]
+    elif m == 1 and n > 1:
+        list = [[1 for i in range(n)]]
+    elif m > 1 and n == 1:
+        list = [[1] for i in range(m)]
+    else:
+        list = [[0 for i in range(n)] for i in range(m)]
+        print list
+        exit
+        for i in range(0, n):
+            list[0][i] = 1
+        for i in range(0, m):
+            list[i][0] = 1
+        for i in range(1, m):
+            for j in range(1, n):
+                list[i][j] = list[i-1][j] + list[i][j-1]
 
-s = Solution()
-print s.uniquePaths(1,7)
-print s.uniquePaths(7,1)
-print s.uniquePaths(3,7)
+    return list[m-1][n-1]
+
+# print uniquePaths(1,4)
+print uniquePaths(3,3)
