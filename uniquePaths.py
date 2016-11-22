@@ -27,4 +27,37 @@ def uniquePaths(m, n):
     return list[m-1][n-1]
 
 # print uniquePaths(1,4)
-print uniquePaths(3,3)
+# print uniquePaths(3,3)
+
+# When there is obstacle, the count becomes 0
+
+def uniquePathObstacle(obstacleMatrix):
+
+    m = len(obstacleMatrix)
+    n = len(obstacleMatrix[0])
+
+    rtn = [[0]*n]*m
+
+    for i in range(m):
+        if obstacleMatrix[i][0]!=1:
+            rtn[i][0] = 1
+
+    for j in range(n):
+        if obstacleMatrix[i][0]!=1:
+            rtn[0][j] = 1
+
+    for i in range(1,m):
+        for j in range(1,n):
+            if obstacleMatrix[i][j]==1:
+                rtn[i][j] = 0
+            else:
+                rtn[i][j] = rtn[i-1][j] + rtn[i][j-1]
+
+    return rtn[m-1][n-1]
+
+matrix = [[0,0,0],
+          [0,1,0],
+          [0,0,0]]
+
+print uniquePathObstacle(matrix)
+
