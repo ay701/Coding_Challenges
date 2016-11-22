@@ -36,7 +36,8 @@ def uniquePathObstacle(obstacleMatrix):
     m = len(obstacleMatrix)
     n = len(obstacleMatrix[0])
 
-    rtn = [[0]*n]*m
+    # rtn = [[0]*n]*m
+    rtn = [[0 for j in range(n)] for i in range(m)]
 
     for i in range(m):
         if obstacleMatrix[i][0]!=1:
