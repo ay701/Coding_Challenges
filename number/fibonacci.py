@@ -18,3 +18,15 @@ for ind, res in enumerate(fib2()):
     if ind==6:
         print ind, res
         break
+
+# Large data 
+# use generator
+def fib3(n):
+    a,b = 0,1
+
+    for i in range(n):
+       yield a
+       a, b = b, a+b
+
+for x in fib3(6):
+    print(x)
