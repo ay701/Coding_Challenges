@@ -6,7 +6,7 @@
 #          321 -> 141 (hex)
 #######################################
 
-def convertDecimal(data, base):
+def convertDecimalToOtherBases(data, base):
     stack = []
     
     while data:
@@ -21,8 +21,8 @@ def convertDecimal(data, base):
 
     return output
 
-print(convertDecimal(321,2))
-print(convertDecimal(321,8))
-print(convertDecimal(321,16))
+print(convertDecimalToOtherBases(321,2))
+print(convertDecimalToOtherBases(321,8))
+print(convertDecimalToOtherBases(321,16))
 
        
