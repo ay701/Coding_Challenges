@@ -6,10 +6,13 @@ def isPalindrome_int(num):
     if num<0:
     	num = num*-1
 
+    if num<10:
+        return True
+
     div = 1
     while num/div>10:
     	div *= 10
-    	
+
     print div
 
     while div>1:
