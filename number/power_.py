@@ -1,6 +1,6 @@
 #python 2.7.6
 
-print "Hello, world!"
+# hedgeServe interview question
 
 # 2,1 = 2
 # 2,2 = 4 = power(2,1) * = power(2,1) * 2

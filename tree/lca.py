@@ -1,3 +1,6 @@
+# Lowest Common Ancestor
+# http://www.crazyforcode.com/lowest-common-ancestor-binary-tree/
+
 def lca(root,x,y):
     if root is None or root==x or root==y:
         return root
