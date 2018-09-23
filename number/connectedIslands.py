@@ -18,6 +18,10 @@ class Graph:
         self.row = len(graph)
         self.col = len(graph[0])
         self.visited = [[False for i in range(self.col)] for j in range(self.row)]
+
+        # These arrays are used to get row and
+        # column numbers of 8 neighbours
+        # of a given cell
         self.row_marks = [-1,-1,-1,0,0,1,1,1]
         self.col_marks = [-1,0,1,-1,1,-1,0,1]
 
