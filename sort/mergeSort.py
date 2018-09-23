@@ -1,3 +1,8 @@
+# 
+# Merge Sort is a Divide and Conquer algorithm. 
+# Time Complexity : O(NlogN)
+#
+
 def mergeSort(data):
     output = []
 
@@ -11,14 +16,14 @@ def mergeSort(data):
     i = 0
     j = 0
 
-    while i<len(left) and j < len(right):
+    while i<len(left) and j<len(right):
 
-            if left[i]<right[j]:
-                output.append(left[i])
-                i+=1
-            else:
-                output.append(right[j]) 
-                j+=1
+        if left[i]<right[j]:
+            output.append(left[i])
+            i+=1
+        else:
+            output.append(right[j])
+            j+=1
 
     output += left[i:]
     output += right[j:]

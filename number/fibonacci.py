@@ -19,7 +19,7 @@ for ind, res in enumerate(fib2()):
         print ind, res
         break
 
-# Large data 
+# Large data
 # use generator
 def fib3(n):
     a,b = 0,1
