@@ -1,3 +1,5 @@
+# Print left-most node of each level
+
 class Node:
     def __init__(self, value, left=None, right=None):
         self.value = value
