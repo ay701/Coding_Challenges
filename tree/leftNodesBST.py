@@ -30,7 +30,7 @@ class Node:
         self.left = None
         self.right = None
 
-def printLeftNode(root, curr_level, last_level):
+def printNode(root, curr_level, last_level):
     if root is None:
         return
 
@@ -39,13 +39,20 @@ def printLeftNode(root, curr_level, last_level):
         last_level = curr_level
 
     curr_level += 1
-    printLeftNode(root.left, curr_level, last_level)
-    printLeftNode(root.right, curr_level, last_level)
+    printNode(root.left, curr_level, last_level)
+    printNode(root.right, curr_level, last_level)
 
 def printLeftNodes(root):
+    printNode(root, 1, 0)
 
-    printLeftNode(root, 1, 0)
 
+# Driver program to test above function
+root = Node(12)
+root.left = Node(10)
+root.right = Node(20)
+root.right.left = Node(25)
+root.right.right = Node(40)
 
+printLeftNodes(root)
 
 
