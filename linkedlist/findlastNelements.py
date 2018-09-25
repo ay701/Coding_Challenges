@@ -1,7 +1,13 @@
+# Use two pointers, one for head, another for end
+# If counter equals to length of asked last n number, move both head and end pointer
+# Otherwise move end pointer only
+# Once end node's next is empty, terminate
+
 class Node:
-    def __init__(self, data=None, nex=None):
-    	self.data = data
-    	self.next = nex
+    def __init__(self, data=None, next=None):
+        self.data = data
+        self.next = next
+
 
 def findlastNelements(head,n):
 
@@ -21,12 +27,15 @@ def findlastNelements(head,n):
             end = end.next
 
     if cnt<n:
-        print n, "is smaller than Linkedlist size: ", cnt
+        print n, "is larger than Linkedlist size: ", cnt
         exit
 
     return start
 
+head = Node(2)
+head.next = Node(3)
+head.next.next = Node(4)
+head.next.next.next = Node(7)
 
-head = Node(2,Node(3,Node(4,Node(7))))
-head = findlastNelements(head,1)
-print head.data
+head = findlastNelements(head,5)
+print(head.data)
