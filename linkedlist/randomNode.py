@@ -1,5 +1,6 @@
 # Using reservior sampling
 # set sample size 1
+# https://www.geeksforgeeks.org/reservoir-sampling/
 
 import random
 

@@ -1,3 +1,5 @@
+# Use stack, time complexity: O(N)
+
 def rotateString(L, k):
     
     if L is None or len(L)==0 :
