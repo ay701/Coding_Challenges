@@ -10,26 +10,26 @@
 # [ { ( ) ]
 ##########################################
 
-def parChecker(data):
+def parentheseChecker(data):
     stack = []
     balanced = True
-    pars = {"{":"}","(":")","[":"]"}
+    pars = {"{": "}", "(": ")", "[": "]"}
  
-    for ele in data:
-        if ele in pars.keys() and balanced:
-            stack.append(ele)
+    for item in data:
+        if item in pars.keys() and balanced:
+            stack.append(item)
         else:
             if not stack:
                 return False
-            else :
+            else:
                 k = stack.pop()
-                if pars[k]!=ele:
+                if pars[k] != item:
                     return False
 
-    if stack :
+    if stack:
         balanced = False 
 
     return balanced
 
-print(parChecker('{{([][])}()}'))
-print(parChecker('[{()]'))
+print(parentheseChecker('{{([][])}()}'))
+print(parentheseChecker('[{()]'))
