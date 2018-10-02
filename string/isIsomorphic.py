@@ -1,6 +1,6 @@
-def isIsomorphic(s,t):
+def is_isomorphic(s, t):
 
-    if len(s)!=len(t):
+    if len(s) != len(t):
         return False
 
     s_map, t_map = {}, {}
@@ -10,13 +10,13 @@ def isIsomorphic(s,t):
 
         if source is None and target is None:
             s_map[s[i]], t_map[t[i]] = t[i], s[i]
-        elif source != s[i] or target!= t[i]:
-            return False 
+        elif source != s[i] or target != t[i]:
+            return False
 
     return True
 
 
 s = 'abbaa'
 t = 'cddcd'
-print isIsomorphic(s,t)
+print is_isomorphic(s, t)
 

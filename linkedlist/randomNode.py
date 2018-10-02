@@ -4,16 +4,18 @@
 
 import random
 
+
 class ListNode(object):
     def __init__(self, data):
         self.data = data
         self.next = None
 
+
 class Solution(object):
     def __init__(self,head):
         self.head = head
 
-    def getRandom(self):
+    def get_random(self):
         result = None
         cnt = 0
         node = self.head
@@ -21,12 +23,12 @@ class Solution(object):
         while node is not None :
             cnt += 1
 
-            if cnt==1 :
+            if cnt == 1:
                 result = node
-            else :
+            else:
                 k = int(random.random()*cnt)
-                if k==1 :
-                   result = node 
+                if k == 1:
+                    result = node
             node = node.next
 
         return result.data
@@ -44,4 +46,4 @@ node3.next = node4
 node4.next = node5
 
 s = Solution(node1)
-print s.getRandom()
+print s.get_random()
