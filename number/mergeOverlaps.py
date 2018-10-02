@@ -46,31 +46,32 @@
 #
 
 segments = [
-    { 'start': 10, 'end': 16 },
-    { 'start': 17, 'end': 18 },
-    { 'start': 1, 'end': 2 },
-    { 'start': 8, 'end': 10 },
-    { 'start': 17, 'end': 20 },
-    { 'start': 19, 'end': 25 },
-    { 'start': 24, 'end': 27 }
+    {'start': 10, 'end': 16},
+    {'start': 17, 'end': 18},
+    {'start': 1, 'end': 2},
+    {'start': 8, 'end': 10},
+    {'start': 17, 'end': 20},
+    {'start': 19, 'end': 25},
+    {'start': 24, 'end': 27}
 ]
 
-def mergeOverlaps(segments):
+
+def merge_overlaps(segments):
     output = []
     
     sorted_segs = sorted(segments)
     
-    if len(sorted_segs)<=1 :
+    if len(sorted_segs) <= 1:
         return sorted_segs
 
     print sorted_segs
     cur = sorted_segs[0]
 
-    for i in range(1,len(sorted_segs)):
+    for i in range(1, len(sorted_segs)):
  
         nex = sorted_segs[i]
 
-        if cur["end"]<nex["start"]:
+        if cur["end"] < nex["start"]:
             output.append(cur)
             cur = nex
         else:
@@ -80,4 +81,4 @@ def mergeOverlaps(segments):
         
     return output
 
-print workOverlaps(segments)
+print merge_overlaps(segments)
