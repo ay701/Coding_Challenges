@@ -31,8 +31,6 @@ print(longest_substring_without_repeat("abcabcbbcdefg"))
 # http://blog.gainlo.co/index.php/2016/10/07/facebook-interview-longest-substring-without-repeating-characters/
 
 
-from sets import Set
-
 def longest_substring_without_repeat_2(s):
 
     length = len(s)
