@@ -46,7 +46,7 @@ def num_of_possible_triangles_2(l):
     if length < 3:
         return 0
 
-    quick_sort(l)
+    merge_sort(l)
 
     i = 0
     j = 1
