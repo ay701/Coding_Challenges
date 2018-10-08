@@ -1,71 +1,64 @@
-# You are given a list of numbers. When you reach the end of the list you will come back to the beginning of the list (a circular list). 
+# You are given a list of numbers.
+# When you reach the end of the list you will come back to the beginning of the list (a circular list).
 # Write the most efficient algorithm to find the minimum # in this list. 
-# Find any given # in the list. The numbers in the list are always increasing but you dont know where the circular list begins, 
+# Find any given # in the list.
+# The numbers in the list are always increasing but you don't know where the circular list begins,
 # ie: 38, 40, 55, 89, 6, 13, 20, 23, 36.
 
-def findMinInCircularList(L):
+
+def find_min_in_circular_list(l):
  
-    cnt = len(L)
+    n = len(l)
     
-    if cnt==1:
-    	return L[0]
-    elif cnt==2:
-    	return L[0] if L[0]<L[1] else L[1]
-    else:
-        mid = cnt//2
+    if n == 1:
+        return l[0]
 
-        print L[mid-1],L[mid],L[mid+1]
+    if n == 2:
+        return l[0] if l[0] < l[1] else l[1]
 
-        if L[mid]<L[mid+1] and L[mid]<L[mid-1]:
-        	return L[mid]
+    mid = n//2
 
-        if L[mid]>L[mid+1] and L[mid]>L[mid-1]:
-            return min(L[mid+1],L[mid-1])
+    print l[mid-1], l[mid], l[mid+1]
 
-        if L[mid]<L[mid+1] and L[mid]>L[mid-1]:
-            return min(findMinInCircularList(L[:mid+1]),findMinInCircularList(L[mid:]))
+    if l[mid] < l[mid+1] and l[mid] < l[mid-1]:
+        return l[mid]
 
-print findMinInCircularList([38, 40, 55, 89, 2, 3, 6, 7, 13, 20, 23, 36])
+    if l[mid] > l[mid+1] and l[mid] > l[mid-1]:
+        return min(l[mid+1], l[mid-1])
+
+    if l[mid] < l[mid+1] and l[mid] > l[mid-1]:
+        return min(find_min_in_circular_list(l[:mid+1]), find_min_in_circular_list(l[mid:]))
+
+print find_min_in_circular_list([38, 40, 55, 89, 2, 3, 6, 7, 13, 20, 23, 36])
 
 
-def findMinInCircularList_loop(L):
+def find_min_in_circular_list_iter(l):
+    n = len(l)
 
-    min_ = L[0]
+    if n == 1:
+        return l[0]
 
-    for e in L:
-        if e<min_:
-            min_ = e
+    if n == 2:
+        return l[0] if l[0] < l[1] else l[1]
 
-    return min_
+    start = 0
+    end = n
 
-# def findMinInCircularList_iter(L):
- 
-#     cnt = len(L)
-    
-#     if cnt==1:
-#     	return L[0]
-#     elif cnt==2:
-#     	return L[0] if L[0]<L[1] else L[1]
-    
-#     start = 0
-#     end = cnt-1
-    
-#     while end>start+1:
+    while start <= end:
 
-#         mid = (end-start)//2
+        mid = (end-start)//2
 
-#         print L[mid-1],L[mid],L[mid+1]
+        print(l[mid-1], l[mid], l[mid+1])
 
-#         if L[mid]<L[mid+1] and L[mid]<L[mid-1]:
-#         	return L[mid]
+        if l[mid-1] > l[mid] and l[mid] < l[mid+1]:
+            return l[mid]
 
-#         if L[mid]<L[mid+1] and L[mid]>L[mid-1]:
-#             end = mid
+        if l[mid-1] < l[mid] and l[mid+1] < l[mid]:
+            return min(l[mid-1], l[mid+1])
 
-#         if L[mid]>L[mid+1] and L[mid]>L[mid-1]:
-#             return min(L[mid+1],L[mid-1])
+        end = mid+1
 
-#     return max(start,end)
+    return start if start > end else end
 
-# print findMinInCircularList_iter([38, 40, 55, 89, 2, 3, 6, 7, 13, 20, 23, 36])
-print findMinInCircularList_loop([38, 40, 55, 89, 2, 3, 6, 7, 13, 20, 23, 36])
+
+print find_min_in_circular_list_iter([38, 40, 55, 89, 2, 3, 6, 7, 13, 20, 23, 36])
