@@ -1,75 +1,79 @@
 # Combine two arrays, with sorted order
 # Without duplicated elements
 
-def combineArrays(L1, L2):
+
+def combine_arrays(l1, l2):
   
-    L = L1 + L2
+    l = l1 + l2
 
-    if len(L)<2:
-    	return L
+    if len(l) < 2:
+        return l
 
-    L = mergeSort(L)
+    l = merge_sort(l)
 
-    cur = L[0]
+    cur = l[0]
     output = [cur]
 
-    for i, nex in enumerate(L[1:]):
-    	if cur==nex:
-             continue
+    for i, nex in enumerate(l[1:]):
+        if cur == nex:
+            continue
 
         cur = nex        
         output.append(cur)
 
     return output
 
-def mergeSort(L):
 
-    mid = int(len(L)/2)
+def merge_sort(l):
 
-    if len(L)<2:
-        return L
+    mid = int(len(l)/2)
 
-    left = mergeSort(L[:mid])
-    right = mergeSort(L[mid:])
+    if len(l) < 2:
+        return l
+
+    left = merge_sort(l[:mid])
+    right = merge_sort(l[mid:])
 
     i = 0
     j = 0
     output = []
 
-    while i<len(left) and j<len(right):
-        if left[i]<right[j]:
-    	    output.append(left[i])
-            i+=1
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            output.append(left[i])
+            i += 1
         else:
-    	    output.append(right[j])
-            j+=1
+            output.append(right[j])
+            j += 1
 
     output += left[i:]+right[j:]
+
     return output
 
-L1 = [1,4,5,6,10,5,8]
-L2 = [1,14,3,16,11,15,8]
+l1 = [1, 4, 5, 6, 10, 5, 8]
+l2 = [1, 14, 3, 16, 11, 15, 8]
 
-print combineArrays(L1,L2)
+print combine_arrays(l1, l2)
 
 
 # Use list comprehension
 # But this will not remove duplicates from individual list
-def combineArrays1(L1, L2):
+def combine_arrays1(l1, l2):
 
-    output = L1
-    output.extend([x for x in L2 if x not in output])
+    output = l1
+    output.extend([x for x in l2 if x not in output])
     return output
 
-print combineArrays1(L1,L2)
+print combine_arrays1(l1, l2)
+
 
 # Use set
-def combineArrays2(L1, L2):
+def combine_arrays2(l1, l2):
 
-    s1 = set(L1)
-    s2 = set(L2)
+    s1 = set(l1)
+    s2 = set(l2)
 
     return list(s2) + list(s1 - s2)
 
-print combineArrays2(L1,L2)
+print combine_arrays2(l1, l2)
 
