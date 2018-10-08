@@ -12,31 +12,29 @@
 
 """
 
+
 def find_num_duplicates(s):
     
     output = ""
 
-    if len(s)<2:
+    if len(s) < 2:
         return s
 
-    cur = s[0]
+    prev = s[0]
     cnt = 1
 
-    for i, nex in enumerate(s[1:]):
-        
-        # print cur, nex, cnt
-        
-        if cur!=nex:
-            output += cur if cnt==1 else cur + str(cnt)
+    for cur in s[1:]:
+        if cur != prev:
+            output += prev if cnt == 1 else prev + str(cnt)
             cnt = 1
         else:
             cnt += 1
         
-        cur = nex
+        prev = cur
 
-    output += nex if s[-2]!=nex else nex + str(cnt)
+    output += cur if cnt == 1 else cur + str(cnt)
 
-    return output       
+    return output
     
 print find_num_duplicates("hi")
 print find_num_duplicates("aaabaaa")
