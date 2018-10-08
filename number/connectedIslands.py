@@ -12,7 +12,9 @@
 #
 # Output : 5
 
+
 class Graph:
+
     def __init__(self, graph):
         self.graph = graph
         self.row = len(graph)
@@ -22,30 +24,31 @@ class Graph:
         # These arrays are used to get row and
         # column numbers of 8 neighbours
         # of a given cell
-        self.row_marks = [-1,-1,-1,0,0,1,1,1]
-        self.col_marks = [-1,0,1,-1,1,-1,0,1]
+        self.row_marks = [-1, -1, -1, 0, 0, 1, 1, 1]
+        self.col_marks = [-1, 0, 1, -1, 1, -1, 0, 1]
 
-    def isConnected(self, r, c):
-        return (r>=0 and c>=0 and
-                r<self.row and c<self.col and
-                not self.visited[r][c] and
-                self.graph[r][c])
+    def is_connected(self, r, c):
+        return (r >= 0 and c >= 0) \
+               and (r < self.row and c < self.col)\
+               and not self.visited[r][c] \
+               and self.graph[r][c]
 
     def dfs(self, r, c):
         self.visited[r][c] = True
 
+        # Loop for 8 neighours
         for k in range(8):
-            if self.isConnected(r+self.row_marks[k], c+self.col_marks[k]):
+            if self.is_connected(r+self.row_marks[k], c+self.col_marks[k]):
                 self.dfs(r+self.row_marks[k], c+self.col_marks[k])
 
-    def countIslands(self):
+    def count_islands(self):
         count = 0
 
         for r in range(self.row):
             for c in range(self.col):
                 if not self.visited[r][c] and self.graph[r][c]:
-                    self.dfs(r,c)
-                    count+=1
+                    self.dfs(r, c)
+                    count += 1
 
         return count
 
@@ -59,4 +62,4 @@ graph = [[1, 1, 0, 0, 0],
 g = Graph(graph)
 
 print "Number of islands is:"
-print g.countIslands()
+print g.count_islands()
