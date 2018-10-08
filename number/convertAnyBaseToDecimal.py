@@ -5,6 +5,7 @@
 
 def val(ch):
     ch = ord(ch)
+
     if ch in range(48, 58):
         ch -= 48
 
@@ -20,10 +21,11 @@ def to_decimal(number, base):
     for index, ch in enumerate(number[::-1]):
         ch = val(ch)
 
-        if ch>base:
+        if ch > base:
             return 'invalid number'
 
         result += ch * base ** index
+
     return result
 
 
