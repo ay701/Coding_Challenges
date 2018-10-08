@@ -25,7 +25,7 @@ class Solution:
                 self.dic.pop(element)
                 
 arr = [2, 3, 1, 2, 3, 3, 3, 2, 4, 3]
-Solution(arr).pairs()
+# Solution(arr).pairs()
 
 # 
 # The purpose of these functions is to perform run length encoding & decoding on a string,
@@ -36,16 +36,16 @@ Solution(arr).pairs()
 def encoding(st):
     
     output = ""
-    length = len(st)
+    n = len(st)
     
-    if length < 2:
+    if n < 2:
         return st
     
     prev = st[0]
     cnt = 1
     
-    for cur in st[1:length]:
-        
+    for cur in st[1:]:
+
         if prev == cur:
             cnt += 1
         else:
@@ -57,7 +57,8 @@ def encoding(st):
             cnt = 1
             
         prev = cur
-        
+
+    # Above code always add "prev" value, need to process "cur" value
     if cnt > 1:
         output += prev + str(cnt)
     else:
@@ -75,31 +76,36 @@ def decoding(st):
     # exit()
 
     output = ""
-    length = len(st)
+    n = len(st)
+
+    if n < 2:
+        return st
+
     prev = st[0]
-    num = ""
+    num_loop = 1
+    num = 0
     
-    for cur in st[1:length]:
+    for cur in st[1:]:
         if cur.isdigit():
-            num += cur
+            num = num_loop * num + int(cur)
+            num_loop *= 10
         else:
-            if num == "":
+            if num == 0:
                 output += prev
             else:
-                cnt = int(num)
-
-                for i in range(cnt):
+                for i in range(num):
                     output += prev
 
-                num = ""
+                num = 0
+                num_loop = 0
 
             # Only when cur is alphabet, it moves
             prev = cur
 
-    if num == "":
+    if num == 0:
         output += prev
     else:
-        for i in range(int(num)):
+        for i in range(num):
             output += prev
         output += prev
         
