@@ -6,13 +6,14 @@
 #          321 -> 141 (hex)
 #######################################
 
-def convertDecimalToOtherBases(data, base):
+
+def convert_decimal_to_other_bases(data, base):
     stack = []
     
     while data:
-       rem = data%base 
-       stack.append(rem)
-       data = data//base
+        rem = data % base
+        stack.append(rem)
+        data = data//base
 
     output = ""
 
@@ -21,8 +22,6 @@ def convertDecimalToOtherBases(data, base):
 
     return output
 
-print(convertDecimalToOtherBases(321,2))
-print(convertDecimalToOtherBases(321,8))
-print(convertDecimalToOtherBases(321,16))
-
-       
+print(convert_decimal_to_other_bases(321, 2))
+print(convert_decimal_to_other_bases(321, 8))
+print(convert_decimal_to_other_bases(321, 16))
