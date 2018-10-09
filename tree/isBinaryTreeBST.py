@@ -1,6 +1,4 @@
 # https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
-
-
 # Python program to check if a binary tree is bst or not
 
 INT_MAX = 4294967296
@@ -16,15 +14,9 @@ class Node:
         self.right = None
 
 
-# Returns true if the given tree is a binary search tree
-# (efficient version)
-def isBST(node):
-    return isBSTUtil(node, INT_MIN, INT_MAX)
-
-
-# Retusn true if the given tree is a BST and its values
+# Return true if the given tree is a BST and its values
 # >= min and <= max
-def isBSTUtil(node, mini, maxi):
+def is_bst(node, mini, maxi):
     # An empty tree is BST
     if node is None:
         return True
@@ -35,8 +27,8 @@ def isBSTUtil(node, mini, maxi):
 
     # Otherwise check the subtrees recursively
     # tightening the min or max constraint
-    return (isBSTUtil(node.left, mini, node.data - 1) and
-            isBSTUtil(node.right, node.data + 1, maxi))
+    return (is_bst(node.left, mini, node.data - 1) and
+            is_bst(node.right, node.data + 1, maxi))
 
 
 # Driver program to test above function
@@ -46,7 +38,9 @@ root.right = Node(5)
 root.left.left = Node(1)
 root.left.right = Node(3)
 
-if (isBST(root)):
+is_bst(root, INT_MIN, INT_MAX)
+
+if is_bst(root):
     print "Is BST"
 else:
     print "Not a BST"
