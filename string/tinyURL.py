@@ -1,6 +1,7 @@
 # https://leetcode.com/discuss/interview-question/124658/Design-a-URL-Shortener-(-TinyURL-)-System/
 # We need database to save the long url, and return record id
 # Use record id to generate the short url
+# Short url only allows to use A-Z, a-z, 0-9
 
 
 def tiny_url(record_id):
@@ -15,6 +16,8 @@ def tiny_url(record_id):
         record_id /= n
 
     short_url.reverse()
+
+    return short_url
 
 
 def short_url_to_id(short_url):
