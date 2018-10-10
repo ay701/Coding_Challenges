@@ -41,30 +41,39 @@ print(num_of_possible_triangles(arr))
 
 
 def num_of_possible_triangles_2(l):
-    length = len(l)
+    n = len(l)
 
-    if length < 3:
+    if n < 3:
         return 0
 
-    merge_sort(l)
+    # merge_sort(l)
+    l.sort()
+
+    print(l)
 
     i = 0
     j = 1
+    k = n - 1
     cnt = 0
 
-    while i < length-2:
-        k = j+1
+    while i < n-2:
+        while k > j:
+            if l[i] + l[j] > l[k]:
+                print(l[i:k+1])
+                cnt += k - j
+                break
+            else:
+                k -= 1
 
-        while k < length and l[i]+l[j] > l[k]:
-            k += 1
-
-        cnt += k - j - 1
+        # print(l[i], l[j], l[k], cnt)
 
         j += 1
+        k = n - 1
 
-        if j >= length:
+        if j > n-1:
             i += 1
-            j = i+1
+            j = i + 1
+            k = j + 1
 
     return cnt
 
