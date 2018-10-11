@@ -29,13 +29,16 @@ def is_isomorphic(s, t):
     if len_s != len_t:
         return False
 
-    s_map, t_map = {}, {}
+    s_map = {}
+    t_map = {}
 
     for i in range(len_s):
-        source, target = t_map.get(t[i]), s_map.get(s[i])
+        source = t_map.get(t[i])
+        target = s_map.get(s[i])
 
         if source is None and target is None:
-            s_map[s[i]], t_map[t[i]] = t[i], s[i]
+            s_map[s[i]] = t[i]
+            t_map[t[i]] = s[i]
         elif source != s[i] or target != t[i]:
             return False
 
