@@ -1,54 +1,57 @@
-def isPanlindrome( st ):
-    return str(st)==str(st)[::-1]    
+# Single character and empty sth both are palindrome
 
-print isPanlindrome( "hello" )
-print isPanlindrome( "helleh" )
 
-def isPanlindrome_1( st ):
+def is_palindrome(st):
+    return str(st) == str(st)[::-1]
+
+# print is_palindrome("hello")
+# print is_palindrome("helleh")
+
+
+def is_palindrome_1(st):
     return st == ''.join(reversed(st))
-print isPanlindrome_1( "hello" )
-print isPanlindrome_1( "helleh" )
+#
+# print is_palindrome_1("hello")
+# print is_palindrome_1("helleh")
 
-def isPanlindrome_2( st ):
 
-    st = list(st)
-    is_Pan = True
+def is_palindrome_2(st):
 
-    if len(st)<=1:
-       is_Pan = False
+    n = len(st)
 
-    while st and is_Pan:
-        if st[0]!=st[-1]:
-            is_Pan = False
-        else:
-            st.pop(0)
-            st.pop()
-
-    return is_Pan
-
-print isPanlindrome_2( "hello" )
-print isPanlindrome_2( "helleh" )
-
-def isPanlindrome_3( st ):
-    st = list(st) 
-    length = len(st)
-
-    if length<=1:
+    if n in [0, 1]:
         return True
 
-    half = length//2
+    for i in range(n):
+        if st[i] != st[n-i-1]:
+            return False
 
-    if length%2==1:
-        left = half-1
-        right = half+1
+    return True
+
+print is_palindrome_2("hello")
+print is_palindrome_2("helleh")
+
+
+def is_palindrome_3(st):
+    n = len(st)
+
+    if n in [0, 1]:
+        return True
+
+    mid = n//2
+
+    if n % 2 == 1:
+        left = mid
+        right = mid
     else:
-        left = half-1
-        right = half
+        left = mid-1
+        right = mid
 
-    for i in range(half):
+    for i in range(mid):
         if st[left-i] != st[right+i]:
             return False
 
     return True
-print isPanlindrome_3( "hello" )
-print isPanlindrome_3( "helleh" )
+
+print is_palindrome_3("hello")
+print is_palindrome_3("helleh")
