@@ -7,7 +7,7 @@
 import operator
 
 
-def key_value_operator_cal(dic):
+def key_value_operator_cal_iter(dic):
 
     if len(dic) < 1:
         return 0
@@ -40,7 +40,22 @@ def key_value_operator_cal(dic):
     return result
 
 
+def key_value_operator_cal_recur(dic):
+
+    ops = {"+": operator.add, "-": operator.sub, "/": operator.div, "*": operator.mul}
+
+    ope = dic.keys()[0]
+    arr = dic.values()[0]
+
+    result = arr[0] if isinstance(arr[0], int) else key_value_operator_cal_recur(arr[0])
+
+    for e in arr[1:]:
+        result = ops[ope](result, e) if isinstance(e, int) else ops[ope](result, key_value_operator_cal_recur(e))
+
+    return result
+
 dic_1 = {"+": [1, 2, 3]}
 dic_2 = {"+": [1, 2, {"-": [1, 2]}]}
 
-print key_value_operator_cal(dic_2)
+# print key_value_operator_cal_iter(dic_2)
+print key_value_operator_cal_recur(dic_2)
