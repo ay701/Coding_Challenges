@@ -2,6 +2,7 @@
 # (e.g. a->b->c->d->e->f->null should become b->a->d->c->f->e->null). 
 # Code it such that memory position is swapped and not the node value.
 # Bloomberg
+# https://www.youtube.com/watch?v=jiLloHVmLDc
 
 
 class Node:
