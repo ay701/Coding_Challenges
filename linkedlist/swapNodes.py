@@ -15,41 +15,7 @@ class Node:
             self = self.next
 
 
-# Use recursion
-def swap_nodes(head):
-    if not head or not head.next:
-        return head
-
-    first = head
-    second = head.next
-
-    first.next = swap_nodes(second.next)
-    second.next = first
-
-    return second
-
-
-# No recursion
-def swap_nodes2(head):
-    if not head or not head.next:
-        return head
-
-    fake = Node(0)
-    fake.next = head
-    cur = fake
-
-    while cur.next and cur.next.next:
-
-        tmp = cur.next.next
-        cur.next.next = tmp.next
-        tmp.next = cur.next
-        cur.next = tmp
-        cur = cur.next.next
-
-    return fake.next
-
-
-# Change data, not link
+# Change data, iter
 def swap_nodes_iter(node):
 
     if node is None or node.next is None:
@@ -68,7 +34,7 @@ def swap_nodes_iter(node):
     return head
 
 
-# Change link
+# Change data, recur
 def swap_nodes_recur(node):
 
     if node is None or node.next is None:
@@ -83,6 +49,42 @@ def swap_nodes_recur(node):
     return head
 
 
+# Change link, iter
+def swap_nodes_iter2(node):
+
+    if node is None or node.next is None:
+        return node
+
+    head = node.next
+
+    while node and node.next:
+        tmp = node.next.next
+        node.next.next = node
+
+        if tmp is not None and tmp.next is not None:
+            node.next = tmp.next
+        else:
+            node.next = tmp
+
+        node = tmp
+
+    return head
+
+
+# Change link, recur
+def swap_nodes(head):
+    if not head or not head.next:
+        return head
+
+    first = head
+    second = head.next
+
+    first.next = swap_nodes(second.next)
+    second.next = first
+
+    return second
+
+
 # head = Node(5,Node(3,Node(2)))
 head = Node(5)
 head.next = Node(3)
@@ -90,7 +92,7 @@ head.next.next = Node(2)
 head.next.next.next = Node(7)
 head.next.next.next.next = Node(10)
 
-n = swap_nodes2(head)
+n = swap_nodes_iter2(head)
 # n = swap_nodes_recur(head)
 n.print_()
 
