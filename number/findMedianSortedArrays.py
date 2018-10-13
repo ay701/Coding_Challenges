@@ -5,6 +5,8 @@
 # and picking the middle one.
 # For getting the median of input array { 12, 11, 15, 10, 20 }, first sort the array. 
 # We get { 10, 11, 12, 15, 20 } after sorting. Median is the middle element of the sorted array which is 12.
+#
+# https://www.geeksforgeeks.org/median-of-two-sorted-arrays/
 # Time complexity Log(n)
 # Divide Conquer
 
