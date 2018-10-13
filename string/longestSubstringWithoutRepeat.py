@@ -1,16 +1,20 @@
 # Given a string, find the length of the longest substring without repeating characters.
 
+
 def longest_substring_without_repeat(s):
     """
             :type s: str
             :rtype: int
             """
 
-    subs = list()
-    length = len(s)
+    n = len(s)
+    longest = [""]
 
-    for i in range(length+1):
-        for j in range(i+1, length+1):
+    if n < 1:
+        return s
+
+    for i in range(n):
+        for j in range(i+1, n+1):
             sub = s[i:j]
             no_dup = True
 
@@ -19,12 +23,19 @@ def longest_substring_without_repeat(s):
                     no_dup = False
                     break
 
-            if no_dup and not subs.count(sub):
-                subs.append(sub)
+            if no_dup:
+                if len(sub) > len(longest[0]):
+                    longest = [sub]
+                elif len(sub) == len(longest[0]):
+                    longest.append(sub)
 
-    return len(sorted(subs, key=lambda x: len(x), reverse=True)[0])
+    return longest
 
-print(longest_substring_without_repeat("abcabcbbcdefg"))
+    # print(sorted(subs, key=lambda x: len(x), reverse=True)[0])
+    # return len(sorted(subs, key=lambda x: len(x), reverse=True)[0])
+
+# print(longest_substring_without_repeat("abcabcbbcdefg"))
+
 
 # Using sliding window algorithm
 # The final solution has O(N) time complexity and O(N) space complexity.
@@ -33,9 +44,9 @@ print(longest_substring_without_repeat("abcabcbbcdefg"))
 
 def longest_substring_without_repeat_2(s):
 
-    length = len(s)
+    n = len(s)
 
-    if length < 1:
+    if n < 1:
         return s
 
     start = 0
@@ -44,9 +55,9 @@ def longest_substring_without_repeat_2(s):
     longest = ""
     my_set = set()
 
-    while end < length:
+    while end < n:
         end += 1
-        cur = s[end - 1]
+        cur = s[end-1]
 
         # If not in set, add to set, update values
         if cur not in my_set:
@@ -56,22 +67,14 @@ def longest_substring_without_repeat_2(s):
                longest = s[start:end]
 
             continue
-
-        # If not in set, move two pointers, update set
-        while start < end - 1:
-            if s[start] == cur:
-                start += 1
-                break
-            else:
-                my_set.remove(s[start])
-                start += 1
+        else:
+            # Move first pointer, clear set
+            for i in range(start, end-1):
+                if s[i] == cur:
+                    start = i+1
+                    end = start
+            my_set.clear()
 
     return longest
 
 print longest_substring_without_repeat_2("abcadbef")
-
-
-
-
-
-
