@@ -1,4 +1,5 @@
 # Look-and-Say Sequence
+# https://www.youtube.com/watch?v=_1Wp4Bww8Rs
 # Find the nth term in Look-and-say (Or Count and Say) Sequence.
 # The look-and-say sequence is the sequence of below integers:
 # 1, 11, 21, 1211, 111221, 312211, 13112221, 1113213211, ...
