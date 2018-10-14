@@ -1,6 +1,6 @@
 # https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/
 # Use Dynamic programming
-# O(M*N)
+# O(N**2)
 
 
 def longest_palindromic_substring(s):
