@@ -41,19 +41,25 @@ class Solution(object):
         """
         if not root:
             return True
-        return self._isSymmetric(root.left, root.right)
 
-    def _isSymmetric(self, left, right):
+        return self.is_symmetric(root.left, root.right)
+
+    def is_symmetric(self, left, right):
         if not left and not right:
             return True
+
         if not left or not right:
             return False
+
         if left.val != right.val:
             return False
-        return self._isSymmetric(left.left, right.right) and self._isSymmetric(left.right, right.left)
+
+        return self.is_symmetric(left.left, right.right) and self.is_symmetric(left.right, right.left)
+
 
     # Solve it iteratively
-    def isSymmetric_iterate(self, root):
+    # Using two stacks
+    def is_symmetric_iterate(self, root):
         """
         :type root: TreeNode
         :rtype: bool
@@ -74,6 +80,7 @@ class Solution(object):
 
             for __ in range(size1):
                 curr1, curr2 = stack1.pop(), stack2.pop()
+
                 if not curr1 and not curr2:
                     continue
 

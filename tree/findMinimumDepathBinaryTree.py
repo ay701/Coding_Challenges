@@ -28,14 +28,17 @@ class Solution(object):
         if root is None:
             return 0
 
-        depth, curr_level = 0, [root]
+        depth = 0
+        curr_level = [root]
 
         while curr_level:
             depth += 1
             next_level = []
 
             for n in curr_level:
-                left, right = n.left, n.right
+                left = n.left
+                right = n.right
+
                 if left is None and right is None:
                     return depth
 
