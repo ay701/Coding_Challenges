@@ -1,13 +1,14 @@
 # Lowest Common Ancestor
 # http://www.crazyforcode.com/lowest-common-ancestor-binary-tree/
-# http://www.crazyforcode.com/lowest-common-ancestor-binary-tree/
+# https://www.youtube.com/watch?v=13m9ZCB8gjw
 
-def lca(root,x,y):
-    if root is None or root==x or root==y:
+
+def lca(root, x, y):
+    if root is None or root == x or root == y:
         return root
 
-    left = lca(root.left,x,y)
-    right = lca(root.right,x,y)
+    left = lca(root.left, x, y)
+    right = lca(root.right, x, y)
 
     if left and right:
         return root
@@ -42,27 +43,27 @@ def lca(root, n1, n2):
 
     # If both n1 and n2 are smaller than root, then LCA
     # lies in left
-    if (root.data > n1 and root.data > n2):
+    if root.data > n1 and root.data > n2:
         return lca(root.left, n1, n2)
 
         # If both n1 and n2 are greater than root, then LCA
     # lies in right
-    if (root.data < n1 and root.data < n2):
+    if root.data < n1 and root.data < n2:
         return lca(root.right, n1, n2)
 
     return root
 
-def findPath(root,x):
+
+def find_path(root, x):
     path = []
     stack = [] # keep right nodes
 
     while root or stack:
 
         if root:
-
             path.append(root)
 
-            if root.data==x.data:
+            if root.data == x.data:
                 return path
 
             stack.append(root.right)
@@ -71,4 +72,4 @@ def findPath(root,x):
         else:
             peek = stack[-1]
 
-    findPath
+        # find_path
