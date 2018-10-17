@@ -6,6 +6,8 @@
 
 # First Solution
 # O(N)
+
+
 def three_sum(l, sum):
 
     output = []
@@ -18,7 +20,7 @@ def three_sum(l, sum):
         for j in range(i+1, n):
             k = cur_sum - l[j]
 
-            if dic.get(k) is not None and l[i] != k and l[j] != k:
+            if not dic.get(k) and l[i] != k and l[j] != k:
                 output.append((l[i], l[j], k))
             else:
                 dic[l[j]] = True

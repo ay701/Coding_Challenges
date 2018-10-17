@@ -10,28 +10,34 @@
 
 # This is because the new interval [4,9] overlaps with [3,5],[6,7],[8,10].
 
-def insertInterval(intervals, new_interval):
-     
+
+def insert_interval(intervals, new_interval):
+
     output = []
-    insert_pos = 0
-          
-    for interval in intervals:
-    	if interval[0]>new_interval[1]:
-    		output.append(interval)
-    	elif interval[1]<new_interval[0]:
-    		output.append(interval)
-    		insert_pos += 1
-    	else:
-    		new_interval = [min(new_interval[0], interval[0]), max(new_interval[1],interval[1])]
+    n = len(intervals)
 
-    output.insert(insert_pos, new_interval)
+    for i in range(n):
 
-    return output
+		if intervals[i][0] > new_interval[1]:
+			output.append(new_interval)
+			output.extend(intervals[i:])
+			return output
+
+		if intervals[i][1] < new_interval[0]:
+			output.append(intervals[i])
+			continue
+
+        first = min(new_interval[0], intervals[i][0])
+	    second = max(new_interval[1], intervals[i][1])
+        new_interval = [first, second]
+
+	return output
+
 
 L = [[1,2],[3,5],[6,7],[8,10],[12,16]]
-interval = [4,9]
+interval_ = [4,9]
 # interval = [-1,0]
 # interval = [2,3]
-print insertInterval(L, interval)
+print insert_interval(L, interval_)
 
 

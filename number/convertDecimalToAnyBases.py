@@ -9,13 +9,11 @@
 
 def convert_decimal_to_other_bases(data, base):
     stack = []
-    
-    while data:
-        rem = data % base
-        stack.append(rem)
-        data = data//base
-
     output = ""
+
+    while data:
+        stack.append(data % base)
+        data = data//base
 
     while stack:
         output += str(stack.pop())

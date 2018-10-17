@@ -6,7 +6,8 @@
 # Time complexity is O(1)
 # Only use cur_sum and max_ to store values
 
-def maximumSubarray(L):
+
+def maximum_sub_array(L):
 
     max_ = L[0]
     cur_sum = L[0]
@@ -20,6 +21,6 @@ def maximumSubarray(L):
     return max_
 
 # L = [2,3,4,0,-1]
-L = [-2,1,-3,4,-1,2,1,-5,4]
+L = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
 # L = [−2,1,−3,4,−1,2,1,−5,4]
-print maximumSubarray(L)
+print maximum_sub_array(L)

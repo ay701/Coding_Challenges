@@ -77,7 +77,7 @@ def main():
     data = '[{"name":"test1", "expected":5, "data":[[1,2,3],[4,5,6],[7,8,9]]}, {"name":"test2", "expected":5, "data":[[1,2,1,2],[4,5,2,5],[1,8,1,8],[3,6,7,9]]},{"name":"test3","expected":2,"data":[[1,2,1,2],[2,1,2,1],[1,2,1,2],[2,1,2,1]]},{"name":"test4","expected":1,"data":[[1]]},{"name":"test5","expected":3,"data":[[1],[2],[4],[2]]},{"name":"test6","expected":3,"data":[[1,2,4,2]]},{"name":"test7","expected":1,"data":[[1,1],[1,1]]},{"name":"test8","expected":6,"data":[[1,2,1,9,6],[4,5,2,5,9],[1,8,1,7,6],[3,6,7,8,0],[3,6,7,9,2]]},{"name":"test9","expected":0,"data":[[]]},{"name":"test10","expected":3,"data":[[0,9,0,0,0,0,0,0,0,0],[9,1,8,0,0,0,0,0,0,0],[0,8,2,7,0,0,0,0,0,0],[0,0,7,3,6,0,0,0,0,0],[0,0,0,6,4,5,0,0,0,0],[0,0,0,0,5,5,4,0,0,0],[0,0,0,0,0,4,6,3,0,0],[0,0,0,0,0,0,3,7,2,0],[0,0,0,0,0,0,0,2,8,1],[0,0,0,0,0,0,0,0,1,9]]}]'
     tests = json.loads(data)
     
-    for test in tests:    
+    for test in tests:
         name = test['name']
         data = test['data']
         expected = test['expected']

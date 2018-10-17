@@ -1,12 +1,17 @@
 # 
 # Your previous Plain Text content is preserved below:
-# 
+#
+# Encoding:
 # Given an unsorted array, print out any number which has a pair in that array.
-#   Each pair should result in the number being printed exactly once.
-#   A number may appear in multiple pairs 
-#   Example: [2, 3, 1, 2, 3, 3, 3, 2, 4, 3] results in: 2 3 3
-# 
-#  Lifion / 2018-10-04
+# Each pair should result in the number being printed exactly once.
+# A number may appear in multiple pairs
+# Example: [2, 3, 1, 2, 3, 3, 3, 2, 4, 3] results in: 2 3 3
+#
+# Decoding:
+# The purpose of these functions is to perform run length encoding & decoding on a string,
+# where a run  # of the same character are replaced by a single copy followed by the number of repetitions;
+# e.g. aaabbcdda --> a3b2cd2a#
+# Lifion / 2018-10-04
 
 
 class Solution:
@@ -26,11 +31,6 @@ class Solution:
                 
 arr = [2, 3, 1, 2, 3, 3, 3, 2, 4, 3]
 # Solution(arr).pairs()
-
-# 
-# The purpose of these functions is to perform run length encoding & decoding on a string,
-# where a run  # of the same character are replaced by a single copy followed by the number of repetitions;
-# e.g. aaabbcdda --> a3b2cd2a
 
 
 def encoding(st):

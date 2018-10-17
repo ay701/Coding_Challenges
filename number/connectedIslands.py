@@ -36,7 +36,7 @@ class Graph:
     def dfs(self, r, c):
         self.visited[r][c] = True
 
-        # Loop for 8 neighours
+        # Loop for 8 neighbors
         for k in range(8):
             if self.is_connected(r+self.row_marks[k], c+self.col_marks[k]):
                 self.dfs(r+self.row_marks[k], c+self.col_marks[k])

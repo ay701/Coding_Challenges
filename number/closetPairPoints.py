@@ -10,4 +10,4 @@ def solution(x, y):
     # p1, p2, mi = closest_pair(ax, ay)  # Recursive D&C function
     #return mi
 
-solution([1,2,3], [4,5,6])
+solution([1, 2, 3], [4, 5, 6])

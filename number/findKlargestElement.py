@@ -10,25 +10,37 @@
 # http://www.cs.yale.edu/homes/aspnes/pinewiki/QuickSelect.html
 # O(n)
 
-def findKlargestElement(L,k):
+# https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/
 
-    pivot = L[-1]
+# For first K smallest element :
+# Use MaxHeap for first 0, K-1 element from array
+# Then, next K to N-1 element : if its less than root, swap & heapify
+
+# For first K largest element :
+# Use MinHeap for first 0, K-1 element from array
+# Then, next K to N-1 element : if its larger than root, swap & heapify
+# Time complexity of this solution is O(k + (n-k)*Logk)
+
+
+def find_k_largest_element(l, k):
+
+    pivot = l[-1]
     small_list, large_list = [], []
 
-    for element in L:
-    	if element<pivot:
-    		small_list.append(element)
-    	elif element>pivot:
-    		large_list.append(element)
+    for element in l:
+        if element < pivot:
+            small_list.append(element)
+        elif element > pivot:
+            large_list.append(element)
 
     print small_list, large_list
 
-    if k<=len(large_list):
-    	return findKlargestElement(large_list,k)
-    elif k>len(L)-len(small_list):
-    	return findKlargestElement(small_list,k-(len(L)-len(small_list)))
+    if k <= len(large_list):
+        return find_k_largest_element(large_list, k)
+    elif k > len(l)-len(small_list):
+        return find_k_largest_element(small_list, k-(len(l)-len(small_list)))
     
     return pivot
 
-print findKlargestElement([3,2,1,5,6,4],2)
+print find_k_largest_element([3, 2, 1, 5, 6, 4], 2)
 

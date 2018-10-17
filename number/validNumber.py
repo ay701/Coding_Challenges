@@ -30,35 +30,35 @@ def valid_number(s):
     if s[0] in ['+', '-']:
         s = s[1:]
 
-    length = len(s)
+    n = len(s)
 
     # Deal with digit
-    while index < length and s[index].isdigit():
+    while index < n and s[index].isdigit():
         is_valid = True
         index += 1
 
     # Deal with dot
-    if index < length and s[index] == '.':
+    if index < n and s[index] == '.':
         index += 1
 
-        while index < length and s[index].isdigit():
+        while index < n and s[index].isdigit():
             is_valid = True
             index += 1
 
     # Deal with exponent
-    if is_valid and index < length and s[index] in ['e', 'E']:
+    if is_valid and index < n and s[index] in ['e', 'E']:
         index += 1
         is_exp = False
 
         if s[index] in ['+', '-']:
             index += 1
 
-        while index < length and s[index].isdigit():
+        while index < n and s[index].isdigit():
             is_exp = True
             index += 1
 
     # Return true only deal with all the characters and the part in front of and behind 'e' are all ok
-    return is_valid and is_exp and index == length and s[0].isdigit() and s[-1].isdigit()
+    return is_valid and is_exp and index == n and s[0].isdigit() and s[-1].isdigit()
 
 print(valid_number("3.e-23"))
 print(valid_number(".2e81"))

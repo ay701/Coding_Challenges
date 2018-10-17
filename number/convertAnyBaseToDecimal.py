@@ -17,20 +17,22 @@ def val(ch):
 
 def to_decimal(number, base):
     result = 0
+    number = number[::-1]
 
-    for index, ch in enumerate(number[::-1]):
-        ch = val(ch)
+    for k, v in enumerate(number):
+        print v, ord(v), val(v)
+        v = val(v)
 
-        if ch > base:
+        if v > base:
             return 'invalid number'
 
-        result += ch * base ** index
+        result += v * base ** k
 
     return result
 
 
 def to_decimal_2(number, base):
-    return sum([val(ch) * base ** index for index, ch in enumerate(number[::-1])])
+    return sum([val(v) * base ** k for k, v in enumerate(number[::-1])])
 
 print(to_decimal('1A', 36))
 print(to_decimal_2('1A', 36))
