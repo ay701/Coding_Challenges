@@ -1,45 +1,47 @@
 class Node:
-    def __init__(self, data=None, nex=None):
-    	self.data = data
-    	self.next = nex
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-def sortLinkedlist(head):
 
-    if head is None or head.next is None:
+def sort_linked_list(head):
+
+    if not head or not head.next:
         return head
 
     slow = head
     fast = head.next
 
-    while fast is not None and fast.next is not None:
-    	slow = slow.next
-    	fast = fast.next.next
+    while not fast and not fast.next:
+        slow = slow.next
+        fast = fast.next.next
 
-    right = sortLinkedlist(slow.next)
+    right = sort_linked_list(slow.next)
     slow.next = None
-    left = sortLinkedlist(head)
+    left = sort_linked_list(head)
 
     fake = Node(0)
     tail = fake
 
-    while left is not None and right is not None:
-    	if left.data < right.data:
+    while not left and not right:
+        if left.data < right.data:
             tail.next = left
             left = left.next
         else:
-        	tail.next = right
-        	right = right.next
+            tail.next = right
+            right = right.next
 
         tail = tail.next
 
     if left is not None:
-    	tail.next = left
+        tail.next = left
     else:
-    	tail.next = right
+        tail.next = right
 
     return fake.next
 
-head = sortLinkedlist(Node(4,Node(2,Node(5))))
+
+head = sort_linked_list(Node(4, Node(2, Node(5))))
 
 while head is not None:
     print head.data

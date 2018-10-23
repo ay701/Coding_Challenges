@@ -1,15 +1,15 @@
-def reverseLinkedlist(node):
+def reverse_linked_list(node):
     prev = None
 
     while node:
-        nextnode = node.next
+        next_node = node.next
         node.next = prev
         prev = node
-        node = nextnode
+        node = next_node
 
     return prev
 
-def revLinkedlist(head):
+def rev_linked_list(head):
 
     if head is None or head.next is None:
         return head

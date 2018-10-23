@@ -43,7 +43,7 @@ class TreeNode:
                 level_result.append(node.right.data)
 
             if level_result:
-                result.append(tmp)
+                result.append(level_result)
 
         return result
 

@@ -14,12 +14,13 @@
 
 # n is grid size
 
-def ifConnected(grid):
+
+def if_connected(grid):
     def neighbors(x, y):
         n = len(grid)
         # Returns a list of cells that are adjacent.
-        candidates = [(x-1,y),(x+1,y),(x,y-1),(x,y+1)]
-        return [(x,y) for x,y in candidates if x in range(n) and y in range(n) and grid[x][y]==1]
+        candidates = [(x-1, y), (x+1, y), (x, y-1),(x, y+1)]
+        return [(x, y) for x, y in candidates if x in range(n) and y in range(n) and grid[x][y] == 1]
     
     cnt = 0 # Total non-empty cells
     cells = [] # DFS stack
@@ -27,19 +28,19 @@ def ifConnected(grid):
 
     for x, row in enumerate(grid):
         for y, col in enumerate(row):
-            if grid[x][y]==1:
+            if grid[x][y] == 1:
                 cnt += 1
 
-                if cnt==1:
-                    cells = [(x,y)]
+                if cnt == 1:
+                    cells = [(x, y)]
     
-    while len(cells)>0:
+    while len(cells) > 0:
         cell = cells.pop(0)
         checked_cells.append(cell)
-        cells += [x for x in neighbors(cell[0],cell[1]) if x not in checked_cells]
+        cells += [x for x in neighbors(cell[0], cell[1]) if x not in checked_cells]
 
     # print cnt, len(checked_cells)
-    return cnt==len(checked_cells)
+    return cnt == len(checked_cells)
 
 # grid = [[1, 0, 1],
 #         [0, 1, 0],
@@ -53,4 +54,4 @@ grid = [[0, 0, 1],
         [0, 0, 1],
         [0, 1, 1]]
 
-print ifConnected(grid)
+print if_connected(grid)

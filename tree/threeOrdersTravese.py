@@ -17,7 +17,7 @@ def printInorder(root):
         printInorder(root.left)
 
         # then print the data of node
-        print(root.val),
+        print(root.val)
 
         # now recur on right child
         printInorder(root.right)
@@ -32,7 +32,7 @@ def printPostorder(root):
         printPostorder(root.right)
 
         # now print the data of node
-        print(root.val),
+        print(root.val)
 
 
 # A function to do postorder tree traversal

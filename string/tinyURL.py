@@ -17,7 +17,7 @@ def tiny_url(record_id):
 
     short_url.reverse()
 
-    return short_url
+    return "http://" + short_url
 
 
 def short_url_to_id(short_url):

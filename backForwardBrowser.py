@@ -23,6 +23,7 @@ class Stack:
     def top(self):
         return self.stack[-1]
 
+
 class Browser:
 
     def __init__(self):
@@ -30,18 +31,18 @@ class Browser:
         self.b_s = Stack()
         self.cur_url = "Blank"
 
-    def click(self,url):
+    def click(self, url):
         self.f_s = Stack()
         self.b_s.push(self.cur_url)
         self.cur_url = url
 
     def forward(self):
-        if not f_s.isEmpty():
+        if not self.f_s.isEmpty():
             self.b_s.push(self.cur_url)
             self.cur_url = self.f_s.pop()
 
     def backward(self):
-        if not b_s.isEmpty():
+        if not self.b_s.isEmpty():
             self.f_s.push(self.cur_url)
             self.cur_url = self.b_s.pop()
 

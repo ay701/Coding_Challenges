@@ -1,7 +1,7 @@
 # Print Common Nodes in Two Binary Search Trees
 # Given two Binary Search Trees, find common nodes in them. In other words, find intersection of two BSTs.
 # https://www.geeksforgeeks.org/print-common-nodes-in-two-binary-search-trees/
-# Use two stacks, do in-order traversal
+# Use two stacks, do pre-order traversal
 
 class Node:
 

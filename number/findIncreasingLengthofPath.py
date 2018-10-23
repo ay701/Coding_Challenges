@@ -19,36 +19,36 @@ The longest increasing path is [1, 2, 6, 9] with a length of 4.
 
 class Solution(object):
 
+    def __init__(self, matrix):
+        self.matrix = matrix
+        self.r_len = len(matrix)
+        self.c_len = len(matrix[0])
+
     def neighbours(self, x, y):
         candidates = [(x-1, y), (x+1, y), (x, y-1), (x, y+1)]
 
         return [(x, y) for x, y in candidates if x in range(self.r_len) and y in range(self.c_len)]
             
-    def longest_increasing_path(self, matrix):
-        self.matrix = matrix
-        self.r_len = len(matrix)
-        self.c_len = len(matrix[0])
+    def longest_increasing_path(self):
         max_length = 0
 
-        for x, row in enumerate(matrix):
+        for x, row in enumerate(self.matrix):
             for y, col in enumerate(row):
-                cur_length = self.findLength(x, y)
+                cur_length = self.find_length(x, y)
+
                 if cur_length > max_length:
-                   max_length = cur_length
+                    max_length = cur_length
         
         return max_length
 
     def find_length(self, x, y):
         max_length = 1
         neighbours = self.neighbours(x, y)
+        current_length = 0
 
         for neighbor in neighbours:
-            
-            current_length = 0
-               
             if self.matrix[neighbor[0]][neighbor[1]] > self.matrix[x][y]:
-                current_length += 1 
-                current_length += self.find_length(neighbor[0], neighbor[1])
+                current_length += self.find_length(neighbor[0], neighbor[1]) + 1
                     
             if current_length > max_length:
                 max_length = current_length 
@@ -57,9 +57,9 @@ class Solution(object):
 
 
 nums = [
-  [9,9,4],
-  [6,6,8],
-  [2,1,1]
+  [9, 9, 4],
+  [6, 6, 8],
+  [2, 1, 1]
 ]
 
 nums = [
@@ -84,7 +84,7 @@ def main():
 
         try:
             print "Running test case ({})".format(name)
-            calculated = Solution().longest_increasing_path(data)
+            calculated = Solution(data).longest_increasing_path()
             assert(calculated == expected)
             print "\t-> Passed: ({} == {})".format(calculated, expected)
 
