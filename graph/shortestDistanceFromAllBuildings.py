@@ -56,10 +56,11 @@ class Solution:
 
         while len(l):
             n = len(l)
-            cur = l.pop(0)
             dist += 1
 
             for i in range(n):
+                cur = l.pop(0)
+
                 for direction in self.directions:
                     x = cur[0] + direction[0]
                     y = cur[1] + direction[1]
