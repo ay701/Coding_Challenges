@@ -1,8 +1,9 @@
-#Simplest solution would be to use two stacks (back, forward).
-#Clicking the back button will pop from the back stack and push the current page on the forward stack (and go to the popped value on the back stack).
-#Clicking on any link on a page (following a link) will clear the forward stack and push the current page on the back stack.
-#Clicking on the forward button will pop from the forward stack and push the current page on the back stack (and go to the popped value on the forward stack).
-#The back and forward buttons are disabled when the appropriate stack is empty.
+# Simplest solution would be to use two stacks (back, forward).
+# Clicking the back button will pop from the back stack and push the current page on the forward stack (and go to the popped value on the back stack).
+# Clicking on any link on a page (following a link) will clear the forward stack and push the current page on the back stack.
+# Clicking on the forward button will pop from the forward stack and push the current page on the back stack (and go to the popped value on the forward stack).
+# The back and forward buttons are disabled when the appropriate stack is empty.
+
 
 class Stack:
 
@@ -11,8 +12,8 @@ class Stack:
     def __init__(self):
         self.stack = []
 
-    def isEmpty(self):
-        return len(self.stack)==0
+    def is_empty(self):
+        return len(self.stack) == 0
 
     def pop(self):
         return self.stack.pop()
@@ -37,12 +38,12 @@ class Browser:
         self.cur_url = url
 
     def forward(self):
-        if not self.f_s.isEmpty():
+        if not self.f_s.is_empty():
             self.b_s.push(self.cur_url)
             self.cur_url = self.f_s.pop()
 
     def backward(self):
-        if not self.b_s.isEmpty():
+        if not self.b_s.is_empty():
             self.f_s.push(self.cur_url)
             self.cur_url = self.b_s.pop()
 
