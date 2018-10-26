@@ -47,7 +47,7 @@ class Solution:
         return result
 
 
-    def dfs(self, x, y):
+    def bfs(self, x, y):
 
         count_one = 1
         visited = []
