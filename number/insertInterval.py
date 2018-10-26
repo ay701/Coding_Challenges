@@ -27,11 +27,11 @@ def insert_interval(intervals, new_interval):
 			output.append(intervals[i])
 			continue
 
-        first = min(new_interval[0], intervals[i][0])
-	    second = max(new_interval[1], intervals[i][1])
-        new_interval = [first, second]
+		first = min(new_interval[0], intervals[i][0])
+		second = max(new_interval[1], intervals[i][1])
+		new_interval = [first, second]
 
-	return output
+	return output.append(new_interval)
 
 
 L = [[1,2],[3,5],[6,7],[8,10],[12,16]]
