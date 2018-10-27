@@ -21,6 +21,7 @@
 # 1. Use DFS
 # 2. Use Trie
 
+
 class TrieNode:
 
     def __init__(self, char=""):
