@@ -20,6 +20,8 @@
 # http://www.martinbroadhurst.com/boggle-in-python.html
 # 1. Use DFS
 # 2. Use Trie
+# Ref :
+# https://towardsdatascience.com/implementing-a-trie-data-structure-in-python-in-less-than-100-lines-of-code-a877ea23c1a1
 
 
 class TrieNode:
