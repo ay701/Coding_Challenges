@@ -26,20 +26,21 @@ def is_isomorphic(s, t):
     len_s = len(s)
     len_t = len(t)
 
-    if len_s != len_t:
+    if len_s == 0 or len_s != len_t:
         return False
 
-    s_map = {}
-    t_map = {}
+    hash_map = {}  # One map is enough
 
     for i in range(len_s):
-        source = t_map.get(t[i])
-        target = s_map.get(s[i])
+        source = hash_map.get(s[i])
+        target = hash_map.get(t[i])
 
         if source is None and target is None:
-            s_map[s[i]] = t[i]
-            t_map[t[i]] = s[i]
-        elif source != s[i] or target != t[i]:
+            hash_map[s[i]] = t[i]
+
+            if s[i] != t[i]:
+                hash_map[t[i]] = s[i]
+        elif source != t[i] or target != s[i]:
             return False
 
     return True
