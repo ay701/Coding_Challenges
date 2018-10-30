@@ -5,7 +5,7 @@
 # Given [3,2,1,5,6,4] and k = 2, return 5.
 
 # Note: 
-# You may assume k is always valid, 1 ≤ k ≤ array's length.
+# You may assume k is always valid, 1 <= k <= array's length.
 
 # http://www.cs.yale.edu/homes/aspnes/pinewiki/QuickSelect.html
 # O(n)
@@ -20,6 +20,11 @@
 # Use MinHeap for first 0, K-1 element from array
 # Then, next K to N-1 element : if its larger than root, swap & heapify
 # Time complexity of this solution is O(k + (n-k)*Logk)
+
+# https://www.programcreek.com/2014/05/leetcode-kth-largest-element-in-an-array-java/
+# We can use a min heap to solve this problem. The heap stores the top k elements.
+# Whenever the size is greater than k, delete the min.
+# Time complexity is O(nlog(k)). Space complexity is O(k) for storing the top k numbers.
 
 
 def find_k_largest_element(l, k):
@@ -42,5 +47,40 @@ def find_k_largest_element(l, k):
     
     return pivot
 
-print find_k_largest_element([3, 2, 1, 5, 6, 4], 2)
+# print find_k_largest_element([3, 2, 1, 5, 6, 4], 2)
+
+
+# Use Min heap
+
+# Python code to demonstrate working of
+# heapify(), heappush() and heappop()
+# importing "heapq" to implement heap queue
+
+import heapq
+
+# initializing list
+# li = [5, 7, 9, 1, 3]
+
+# using heapify to convert list into heap
+# heapq.heapify(li)
+
+# printing created heap
+# print ("The created heap is : ")
+# print (list(li))
+
+
+def find_k_largest_element(l, k):
+
+    n = len(l)
+    heap = l[0:k]
+    heapq.heapify(heap)
+
+    for i in range(k, n):
+        heap[0] = l[i]
+        heapq.heapify(heap)
+        print(heap)
+
+    return heap[0]
+
+print(find_k_largest_element([3, 2, 1, 5, 6, 4], 5))
 
