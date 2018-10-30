@@ -1,26 +1,26 @@
 
-def strToInt(st):
+def str_to_int(st):
 
     neg = False
     ret = 0
 
-    if st[0]=="-":
+    if st[0] == "-":
         neg = True
         st = st[1:]
 
-    if len(st)>1 and st[0]=="0":
+    if len(st) > 1 and st[0] == "0":
         exit("Invalid")
 
     for i in range(len(st)):
 
-        asc = ord(st[i])
-
-        if asc<48 or asc>72:
+        if not st[i].isdigit():
             exit("Invalid")
 
+        # print(ret, st[i], int(st[i]))
         ret *= 10
-        ret = ret + asc - 48 
+        ret += int(st[i])
+        print(ret)
 
     return -1*ret if neg else ret
 
-print strToInt("-45123")
+print str_to_int("-45123")
