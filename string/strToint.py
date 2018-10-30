@@ -4,6 +4,8 @@ def str_to_int(st):
     neg = False
     ret = 0
 
+    st = st.strip()
+
     if st[0] == "-":
         neg = True
         st = st[1:]
