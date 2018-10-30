@@ -6,7 +6,8 @@
 
 from collections import defaultdict
 
-def mostCommonLengthWords(st):
+
+def most_common_length_words(st):
     dic = defaultdict(int)
     leng = []
     cnt = 0
@@ -24,18 +25,20 @@ def mostCommonLengthWords(st):
         n = len(s)
         dic[n] += 1
 
-        if dic[n]>cnt:
+        if dic[n] > cnt:
             cnt = dic[n]
             leng = [n]
-        elif dic[n]==cnt:
+        elif dic[n] == cnt:
             leng.append(n)
 
     return leng
 
-print mostCommonLengthWords(s)
+s = "-the dog is a superb animals" # 3
+print most_common_length_words(s)
+
 
 # Original way, use pointers, without split function
-def mostCommonLengthWords(st):
+def most_common_length_words(st):
    
     st = st.strip()
     n = len(st)
