@@ -64,9 +64,7 @@ def longest_substring_without_repeat_2(s):
             my_set.add(cur)
 
             if end - start > len(longest):
-               longest = s[start:end]
-
-            continue
+                longest = s[start:end]
         else:
             # Move first pointer, clear set
             for i in range(start, end-1):
