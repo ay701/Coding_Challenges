@@ -29,8 +29,8 @@ class TrieNode:
     def __init__(self, char=""):
         self.char = char
         self.children = []
-        self.word_finished = False # is it last char of word
-        self.counter = 1 # how many times this char appeared in addition process
+        self.word_finished = False  # is it last char of word
+        self.counter = 1  # how many times this char appeared in addition process
 
 
 def add_word(root, word):
@@ -87,3 +87,64 @@ for word in dictionary:
 
 
 print(boggle(root, "FOR"))
+
+
+
+####
+#DFS
+####
+
+
+class Boggle:
+
+    def __init__(self, board, words):
+        self.board = board
+        self.words = words
+        self.r_cnt = len(board)
+        self.c_cnt = len(board[0])
+        self.visited = [[False for _ in range(self.r_cnt)] for _ in range(self.r_cnt)]
+        self.directions = [(-1, 0), (1, 0), (0, 1), (0, -1), (1, 1), (-1, 1), (1, -1), (-1, -1)]
+
+    def is_word(self, word):
+        if len(word) == 0:
+            print("Input can't be empty!")
+            return False
+
+        if word not in self.words:
+            print(word + " not found in dictionary!")
+            return False
+
+        for x in range(self.r_cnt):
+            for y in range(self.c_cnt):
+                if self.board[x][y] == word[0] and self.dfs(x, y, word, 1):
+                    return True
+
+        return False
+
+    def dfs(self, x, y, word, index):
+
+        if index == len(word):
+            return True
+
+        self.visited[x][y] = True
+
+        for direction in self.directions:
+            new_x = x + direction[0]
+            new_y = x + direction[1]
+
+            if new_x >= 0 and new_y >= 0 \
+                    and new_x < self.r_cnt \
+                    and new_y < self.c_cnt \
+                    and not self.visited[new_x][new_y] \
+                    and self.board[new_x][new_y] == word[index]:
+                return self.dfs(new_x, new_y, word, index+1)
+
+
+board = [['G', 'I', 'Z'],
+         ['U', 'E', 'K'],
+         ['Q', 'S', 'E']]
+dictionary = ["GEEKS", "FOR", "QUIZ", "GO"]
+
+print(Boggle(board, dictionary).is_word("FOR"))
+
+
