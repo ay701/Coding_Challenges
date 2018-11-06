@@ -7,9 +7,9 @@
 
 
 class Node:
-    def __init__(self, data=None, next=None):
+    def __init__(self, data=None):
         self.data = data
-        self.next = next
+        self.next = None
 
 
 def add_two_linked_list(head1, head2):
@@ -21,6 +21,7 @@ def add_two_linked_list(head1, head2):
         return head1
 
     flag = 0
+
     fake = Node(0)
     cur = fake
 

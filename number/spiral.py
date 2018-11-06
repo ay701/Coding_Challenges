@@ -32,12 +32,7 @@ class Solution:
         self.directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
     def is_valid(self, x, y):
-        if x >= 0 and y >= 0 \
-                and x < self.n and y < self.n \
-                and self.result[x][y] == 0:
-            return True
-
-        return False
+        return x in range(self.n) and y in range(self.n) and self.result[x][y] == 0
 
     def spiral(self):
 
@@ -60,7 +55,3 @@ class Solution:
 
 
 print(Solution(4).spiral())
-
-
-
-

@@ -23,13 +23,10 @@
 
 def rotate_matrix_180(arr):
 
-    r_cnt = len(arr)
-    c_cnt = len(arr[0])
-
-    i = r_cnt-1
+    i = len(arr)-1
 
     while i >= 0:
-        j = c_cnt-1
+        j = len(arr[0])-1
 
         while j >= 0:
             print str(arr[i][j]) + " "
@@ -93,7 +90,3 @@ def rotate_matrix_180_2(arr):
     return arr
 
 print(rotate_matrix_180_2)
-
-
-
-
