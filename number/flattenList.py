@@ -14,7 +14,7 @@ def iter_flatten(L):
 
 
 def recur_flatten(L):
-    if L == []:
+    if L is []:
         return L
 
     if isinstance(L[0], list):
@@ -31,6 +31,29 @@ def recur_flatten_2(L):
     else:
         return [L]
 
-print iter_flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
-print recur_flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
-print recur_flatten_2([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
+
+def flatten(l):
+
+    output = []
+
+    if l is []:
+        return l
+
+    queue = l
+
+    while len(queue) > 0:
+        e = queue.pop(0)
+
+        if isinstance(e, list):
+            queue = e + queue
+            continue
+
+        output.append(e)
+
+    return output
+
+
+# print iter_flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
+# print recur_flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
+# print recur_flatten_2([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
+print flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
