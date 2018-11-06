@@ -1,3 +1,8 @@
+# Flatiron Health Interview
+# Find Longest connected spots
+
+# https://www.geeksforgeeks.org/find-length-largest-region-boolean-matrix/
+
 '''
 0 1 0 1 0
 0 1 0 1 1
@@ -5,7 +10,10 @@
 0 1 1 0 0
 '''
 
-# DFS 
+# DFS
+
+import sys
+
 
 class Solution:
     
@@ -14,10 +22,12 @@ class Solution:
         self.row_cnt = len(grid)
         self.col_cnt = len(grid[0])
         self.directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-        self.visited = [[False for i in range(self.col_cnt)] for j in range(self.row_cnt)]
+        self.visited = [[False for _ in range(self.col_cnt)] for _ in range(self.row_cnt)]
         
     def is_valid(self, x, y):
-        return x >= 0 and y >= 0 and x < self.row_cnt and y < self.col_cnt and not self.visited[x][y] and self.grid[x][y] == 1
+        return x in range(self.row_cnt) and y in range(self.col_cnt) \
+               and not self.visited[x][y] \
+               and self.grid[x][y] == 1
         
     def find_max(self):
         
@@ -26,29 +36,24 @@ class Solution:
         for x in range(self.row_cnt):
             for y in range(self.col_cnt):
                 if self.is_valid(x, y):
-                    cnt = self.dfs(x, y)
-                    
-                    if cnt > max_:
-                        max_ = cnt
+                    cnt = [1]
+                    self.dfs(x, y, cnt)
+
+                    max_ = max(max_, cnt[0])
                         
         return max_
     
-    def dfs(self, x, y):
+    def dfs(self, x, y, cnt):
         
         self.visited[x][y] = True
-        max_ = 1
-        
+
         for direction in self.directions:
             new_x = x + direction[0]
             new_y = y + direction[1]
 
             if self.is_valid(new_x, new_y):
-                curr = self.dfs(new_x, new_y) + 1
-                
-                if curr > max_:
-                    max_ = curr
-            
-        return max_
+                cnt[0] += 1
+                self.dfs(new_x, new_y, cnt)
 
     
 grid = [
