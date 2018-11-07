@@ -28,8 +28,8 @@ def find_num_of_anagram(l):
     return sum(dic.values())
 
 
-l = ["act", "cat",  "aft", "aft", "dog"]
-l2 = ["cat", "act", "tac", "fat", "dog",  "aft", "tca"]
+l = ["act", "cat",  "aft", "aft", "dog", "dof"]
+# l2 = ["cat", "act", "tac", "fat", "dog",  "aft", "tca"]
 
 print(find_num_of_anagram(l))
-print(find_num_of_anagram(l2))
+# print(find_num_of_anagram(l2))

@@ -20,29 +20,28 @@
  *Do not change the behavior of the function "findAll". For example: When it gets a None value as input, it is expected to throw an TypeError.
 '''
 
+
 def find_rare_athletes(athletes=None):
     if (athletes == None):
-          raise TypeError()
+        raise TypeError()
 
     if (len(athletes) < 1):
-          return list()
+        return list()
         
     return [athlete[0] for athlete in athletes if is_athlete_rare(athlete)]
-               
-      
+
 
 def is_athlete_rare(athlete=None):
-     if (athlete == None):
+    if (athlete == None):
         raise TypeError()
         
-     if (athlete[1] >= 180 and athlete[2] != "basketball"):
+    if (athlete[1] >= 180 and athlete[2] != "basketball"):
         return True
      
-     if (athlete[1] < 180 and athlete[2] == "basketball"):
+    if (athlete[1] < 180 and athlete[2] == "basketball"):
         return True
      
-     return False
-    
+    return False
 
 
 athletes = [
@@ -55,5 +54,3 @@ athletes = [
 ]
 
 print(find_rare_athletes(athletes))
-
-
