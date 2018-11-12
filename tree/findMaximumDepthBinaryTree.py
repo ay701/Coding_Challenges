@@ -26,25 +26,21 @@ class Node:
         self.right = None
 
 
-def find_max_depth_binary_tree(node, max_):
+def find_max_depth(node, max_depth):
 
     if node is None:
-        return max_
+        return max_depth
 
-    return max(find_max_depth_binary_tree(node.left, max_), find_max_depth_binary_tree(node.right, max_))+1
+    return max(find_max_depth(node.left, max_depth), find_max_depth(node.right, max_depth))+1
 
 
-def find_min_depth_binary_tree(node, min_):
+def find_min_depth(node, min_depth):
 
     if node is None:
-        return min_
+        return min_depth
 
-    min_ += 1
+    return min(find_max_depth(node.left, min_depth), find_max_depth(node.right, min_depth))+1
 
-    if node.left is None and node.right is None:
-        return min_
-
-    return min(find_max_depth_binary_tree(node.left, min_), find_max_depth_binary_tree(node.right, min_))
 
 n = Node(3)
 n.left = Node(9)
@@ -52,6 +48,6 @@ n.right = Node(20)
 n.right.left = Node(15)
 n.right.right = Node(7)
 
-print(find_max_depth_binary_tree(n, 0))
-print(find_min_depth_binary_tree(n, 0))
+print(find_max_depth(n, 0))
+print(find_min_depth(n, 0))
 

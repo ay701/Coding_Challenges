@@ -1,8 +1,7 @@
 # https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
 # Python program to check if a binary tree is bst or not
 
-INT_MAX = 4294967296
-INT_MIN = -4294967296
+import sys
 
 
 # A binary tree node
@@ -38,11 +37,9 @@ root.right = Node(5)
 root.left.left = Node(1)
 root.left.right = Node(3)
 
-is_bst(root, INT_MIN, INT_MAX)
+is_bst(root, sys.minint, sys.maxint)
 
 if is_bst(root):
     print "Is BST"
 else:
     print "Not a BST"
-
-

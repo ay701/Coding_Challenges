@@ -15,21 +15,20 @@ class TreeNode(object):
         self.right = None
 
 
-class Solution(object):
-    def isSameTree(self, p, q):
-        """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
-        """
-        if not q and not p:
-            return True
-        elif not p or not q:
-            return False
-        elif p.val != q.val:
-            return False
-        else:
-            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+def is_same_tree(p, q):
+    """
+    :type p: TreeNode
+    :type q: TreeNode
+    :rtype: bool
+    """
+    if not q and not p:
+        return True
+    elif not p or not q:
+        return False
+    elif p.val != q.val:
+        return False
+    else:
+        return is_same_tree(p.left, q.left) and is_same_tree(p.right, q.right)
 
 
 if __name__ == "__main__":
