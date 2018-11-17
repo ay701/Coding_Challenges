@@ -35,3 +35,7 @@ def top_k_frequent_elements(elements, n):
     return []
 
 print(top_k_frequent_elements([1,2,2,3,3,3,5,5,5,6,4], 2))
+
+# Time Complexity: O(N)  -> O(N+N+N)
+# Space Complexity: O(N)  -> Bucket Size + Dictinary Size
+
