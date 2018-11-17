@@ -1,6 +1,7 @@
 # LeetCode 301. Remove Invalid Parentheses
 # https://zxi.mytechroad.com/blog/searching/leetcode-301-remove-invalid-parentheses/
 # DFS -> Remove one char at a time
+# Time Complexity: O(N^(l+r))
 
 def remove_invalid_parentheses(st):
 
