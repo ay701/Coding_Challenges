@@ -9,6 +9,7 @@ def reverse_linked_list(node):
 
     return prev
 
+
 def rev_linked_list(head):
 
     if head is None or head.next is None:

@@ -1,4 +1,4 @@
-# Using reservior sampling
+# Using reservoir sampling
 # set sample size 1
 # https://www.geeksforgeeks.org/reservoir-sampling/
 
@@ -12,7 +12,7 @@ class ListNode(object):
 
 
 class Solution(object):
-    def __init__(self,head):
+    def __init__(self, head):
         self.head = head
 
     def get_random(self):
@@ -20,7 +20,7 @@ class Solution(object):
         cnt = 0
         node = self.head
 
-        while node is not None :
+        while not node:
             cnt += 1
 
             if cnt == 1:
@@ -29,6 +29,7 @@ class Solution(object):
                 k = int(random.random()*cnt)
                 if k == 1:
                     result = node
+
             node = node.next
 
         return result.data
