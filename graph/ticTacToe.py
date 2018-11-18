@@ -7,6 +7,9 @@
 #  O  | X | X
 #
 # Time complexity: O(1)
+#
+# Reference:
+# http://fernisoites.blogspot.com/2016/08/348-design-tic-tac-toe.html
 
 
 class TicTacToe:
