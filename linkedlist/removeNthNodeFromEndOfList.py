@@ -29,8 +29,14 @@ class Node:
         self.data = data
         self.nex = None
 
+    # Define this to check if it works well
+    def my_print(self):
+        print(self.data)
+        if self.nex:
+            self.nex.my_print()
 
-def remove_nth_node(head, n):
+
+def find_nth_node(head, n):
 
     first_node = head
     second_node = head.nex
@@ -54,6 +60,32 @@ def remove_nth_node(head, n):
     return first_node.data
 
 
+def remove_nth_node(head, n):
+
+    first_node = head
+    second_node = head.nex
+    cnt = 1
+
+    while second_node:
+        if cnt < n+1:
+            second_node = second_node.nex
+            cnt += 1
+            continue
+
+        if cnt == n+1:
+            first_node = first_node.nex
+            second_node = second_node.nex
+            continue
+
+    # Be careful if n is larger than linkedlist size
+    if cnt < n+1:
+        raise Exception("Linkedlist size is smaller than request size: {}".format(n))
+    else:
+        first_node.nex = first_node.nex.nex
+
+    return head
+
+# driver code
 n = Node(2)
 n.nex = Node(3)
 n.nex.nex = Node(4)
@@ -61,5 +93,7 @@ n.nex.nex.nex = Node(5)
 n.nex.nex.nex.nex = Node(6)
 n.nex.nex.nex.nex.nex = Node(7)
 
-print(remove_nth_node(n, 10))
+# print(find_nth_node(n, 3)
+# print(find_nth_node(n, 10)
+remove_nth_node(n, 2).my_print()
 
