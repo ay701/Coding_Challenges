@@ -47,6 +47,10 @@ def remove_nth_node(head, n):
             second_node = second_node.nex
             continue
 
+    # Be careful if n is larger than linkedlist size
+    if cnt < n:
+        raise Exception("Linkedlist size is smaller than request size: {}".format(n))
+
     return first_node.data
 
 
@@ -57,5 +61,5 @@ n.nex.nex.nex = Node(5)
 n.nex.nex.nex.nex = Node(6)
 n.nex.nex.nex.nex.nex = Node(7)
 
-print(remove_nth_node(n, 3))
+print(remove_nth_node(n, 10))
 
