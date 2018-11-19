@@ -59,26 +59,26 @@ def parse_urls(urls):
                 node = root
                 break
 
-        # If root segment not exist
+        # If root segment not exist, create one
         if not node:
             node = Node(segments[0])
             roots.insert(0, node)
         
         for i, segment in enumerate(segments[1:]):
-
-            found = False
+            exist = False
 
             for child in node.children:
                 if segment == child.segment:
                     node = child
-                    found = True
+                    exist = True
                     break
 
-            if not found:
+            if not exist:
                 child = Node(segment)
                 node.children.insert(0, child)
                 node = child
 
+    # Mark node with it's level
     stack = [(root, 0) for i, root in enumerate(roots)]
 
     while stack:
