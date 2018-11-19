@@ -64,22 +64,23 @@ def parse_urls(urls):
             node = Node(segments[0])
             roots.insert(0, node)
         
-        for i, segment in enumerate(segments[1:]):
-            exist = False
+        for segment in segments[1:]:
+            found = False
 
             for child in node.children:
                 if segment == child.segment:
                     node = child
-                    exist = True
+                    found = True
                     break
 
-            if not exist:
+            if not found:
                 child = Node(segment)
                 node.children.insert(0, child)
                 node = child
 
-    # Mark node with it's level
-    stack = [(root, 0) for i, root in enumerate(roots)]
+    # Use DFS with stack
+    # Traverse nodes with it's level
+    stack = [(root, 0) for root in roots]
 
     while stack:
         element = stack.pop()
