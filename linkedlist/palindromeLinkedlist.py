@@ -25,6 +25,9 @@
 # We don't want the middle node as part of any of the lists as we are going to compare them for equality.
 # For odd case, we use a separate variable 'midnode'.
 
+# https://www.programcreek.com/2014/07/leetcode-palindrome-linked-list-java/
+# https://www.geeksforgeeks.org/function-to-check-if-a-singly-linked-list-is-palindrome/
+
 
 class Node:
     def __init__(self, data):
