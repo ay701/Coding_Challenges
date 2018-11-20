@@ -10,16 +10,11 @@ def find_max_after_min(l):
     min_ = prev
     max_ = None
 
-    for i, cur in enumerate(l[1:]):
+    for cur in l[1:]:
 
         if prev < min_:
             min_ = prev
-            
-            if cur > prev:
-                max_ = cur
-            else:
-                max_ = None
-
+            max_ = cur if cur > prev else None
         elif cur == min_:
             if max_ is None or cur > max_:
                 max_ = cur

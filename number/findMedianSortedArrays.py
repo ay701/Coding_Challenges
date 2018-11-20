@@ -48,5 +48,41 @@ print find_median_sorted_arrays([1, 12, 15, 26, 38], [2, 13, 17, 30, 45])
 # print find_median_sorted_arrays([1, 4], [2, 3])
 
 
+# Write code to parse urls into a sitemap tree structure and display it as text. For example, the following urls will result in this printed structure.
+
+# Milestones:
+# 1. Parse routes into data structure
+# 2. Print data structure as simply as possible to check parsing
+# 3. Format text output like shown in below
+
+# [
+#     '/home/anti-depressants/xanax',
+#     '/home/heart/lipitor',
+#     '/home/heart/atorvastatin',
+#     '/home/heart/lipitor',
+#     '/home/heart/heart',
+#     '/drugs/nasal/flonase',
+#     '/drugs/topical',
+#     '/drugs/routes/oral/tablets',
+#     '/drugs/routes/nasal/flonase',
+# ]
+
+# - home
+#     - anti-depressants
+#         - xanax
+#     - heart
+#         - lipitor
+#         - atorvastatin
+#         - heart
+# - drugs
+#     - nasal
+#         - flonase
+#     - topical
+#     - routes
+#         - oral
+#             - tablets
+#         - nasal
+#             - flonase
+
 
 

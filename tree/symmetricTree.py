@@ -56,7 +56,6 @@ class Solution(object):
 
         return self.is_symmetric(left.left, right.right) and self.is_symmetric(left.right, right.left)
 
-
     # Solve it iteratively
     # Using two stacks
     def is_symmetric_iterate(self, root):

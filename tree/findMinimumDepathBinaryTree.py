@@ -36,17 +36,14 @@ class Solution(object):
             next_level = []
 
             for n in curr_level:
-                left = n.left
-                right = n.right
-
-                if left is None and right is None:
+                if not n.left and not n.right:
                     return depth
 
-                if left:
-                    next_level.append(left)
+                if n.left:
+                    next_level.append(n.left)
 
-                if right:
-                    next_level.append(right)
+                if n.right:
+                    next_level.append(n.right)
 
             curr_level = next_level
 

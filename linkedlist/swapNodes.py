@@ -62,7 +62,7 @@ def swap_nodes_iter2(node):
         tmp = node.next.next
         node.next.next = node
 
-        if tmp is not None and tmp.next is not None:
+        if not tmp and not tmp.next:
             node.next = tmp.next
         else:
             node.next = tmp

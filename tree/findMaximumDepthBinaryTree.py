@@ -39,7 +39,7 @@ def find_min_depth(node, min_depth):
     if node is None:
         return min_depth
 
-    return min(find_max_depth(node.left, min_depth), find_max_depth(node.right, min_depth))+1
+    return min(find_min_depth(node.left, min_depth), find_min_depth(node.right, min_depth))+1
 
 
 n = Node(3)

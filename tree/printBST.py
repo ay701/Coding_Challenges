@@ -14,8 +14,10 @@ def traverse(root):
 
     while cur_level:
         next_level = []
+
         for node in cur_level:
             print node.value
+
             if node.left:
                 next_level.append(node.left)
 
@@ -26,9 +28,9 @@ def traverse(root):
        
 
 # Use queue, breadth-first search, find node
-def traverse_bfs(rootnode):
+def traverse_bfs(root):
     
-    queue = [rootnode]
+    queue = [root]
 
     while queue:
         node = queue.pop(0)
@@ -47,22 +49,22 @@ def traverse_bfs(rootnode):
 
 # Use stack, depth-first search, find node
 def traverse_dfs(root):
-    queue = [root]
+    stack = [root]
 
-    while queue:
-        node = queue.pop(0)
+    while stack:
+        node = stack.pop()
         print node.value
         # if node.value == val:
         #    return True
 
-        if node.right:
-            queue = [node.right] + queue
-
         if node.left:
-            queue = [node.left] + queue
+            stack.append(node.left)
+
+        if node.right:
+            stack.append(node.right)
 
 
 t = Node(1, Node(2, Node(4, Node(7))), Node(3, Node(5), Node(6)))
-traverse(t)
-traverse_bfs(t)
+# traverse(t)
+# traverse_bfs(t) # 1 -> 2
 traverse_dfs(t)

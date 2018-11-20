@@ -73,14 +73,17 @@ def find_k_largest_element(l, k):
 
     n = len(l)
     heap = l[0:k]
+
+    # min heap -> heap[0] is always the smallest
     heapq.heapify(heap)
 
     for i in range(k, n):
-        heap[0] = l[i]
+        heap[0] = l[i] if l[i] > heap[0] else heap[0]
         heapq.heapify(heap)
         print(heap)
 
-    return heap[0]
+    return heapq.heappop(heap)
 
-print(find_k_largest_element([3, 2, 1, 5, 6, 4], 5))
+print(find_k_largest_element([3, 2, 1, 5, 6, 4], 2))
+# print(find_k_largest_element([3, 2, 1, 5, 6, 4], 5))
 
