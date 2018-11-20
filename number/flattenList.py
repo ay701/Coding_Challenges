@@ -32,28 +32,49 @@ def recur_flatten_2(L):
         return [L]
 
 
-def flatten(l):
+####################
+# Button Interview #
+####################
 
-    output = []
+def flatten(l, func_seq):
 
     if l is []:
         return l
 
+    output = []
     queue = l
+    dic = {1: 'even_func', 2: 'odd_func'}
 
     while len(queue) > 0:
         e = queue.pop(0)
 
-        if isinstance(e, list):
+        if e is None:
+            continue
+        elif isinstance(e, list):
             queue = e + queue
             continue
+        elif isinstance(e, int):
+            output.append(e)
+            continue
+        else:
+            raise Exception('Invalid element {}', format(element))
 
-        output.append(e)
+    return map(output, dic[func_seq])
 
-    return output
 
+def even_func(arr):
+    return [element for element in arr if element % 2 == 0]
 
 # print iter_flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
 # print recur_flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
 # print recur_flatten_2([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
-print flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]])
+
+print(flatten([[1], [2, 3], [4, [5, [6, [7, [8]]]]]]))
+print(flatten([]))
+print(flatten([-1, "xxx"]))
+print(flatten([[None, 1], [None, None]]))
+print(flatten([[None, 1], [None], [None]]))
+print(flatten([6, 2, [1, [9, 3], None], 2]))
+print(flatten([6, 2, [1, [9, 3], None, None], 2]))
+print(flatten([6, 2, [1, [9, 3], None], 2]))
+
