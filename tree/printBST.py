@@ -51,20 +51,20 @@ def traverse_bfs(root):
 def traverse_dfs(root):
     stack = [root]
 
-    while stack:
+    while queue:
         node = stack.pop()
         print node.value
         # if node.value == val:
         #    return True
 
-        if node.left:
-            stack.append(node.left)
-
         if node.right:
             stack.append(node.right)
 
+        if node.left:
+            stack.append(node.left)
+
 
 t = Node(1, Node(2, Node(4, Node(7))), Node(3, Node(5), Node(6)))
-# traverse(t)
-# traverse_bfs(t) # 1 -> 2
+traverse(t)
+traverse_bfs(t)
 traverse_dfs(t)
