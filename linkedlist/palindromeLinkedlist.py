@@ -105,11 +105,11 @@ def is_palindrome(node):
 
 
 # driver code
-n = Node(2)
-n.nex = Node(3)
-n.nex.nex = Node(4)
-n.nex.nex.nex = Node(4)
-n.nex.nex.nex.nex = Node(3)
-n.nex.nex.nex.nex.nex = Node(2)
-
-print(is_palindrome(n))
+# n = Node(2)
+# n.nex = Node(3)
+# n.nex.nex = Node(4)
+# n.nex.nex.nex = Node(4)
+# n.nex.nex.nex.nex = Node(3)
+# n.nex.nex.nex.nex.nex = Node(2)
+#
+# print(is_palindrome(n))

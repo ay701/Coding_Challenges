@@ -55,9 +55,9 @@ def place_color(grid, row, column, color):
     
 
 grid = [
-        ['R','B','Y', 'Y', 'Y'],
-        ['Y','Y','G', 'B', 'B'],
-        ['B','G','G', 'B', 'B']
+        ['R', 'B', 'Y', 'Y', 'Y'],
+        ['Y', 'Y', 'G', 'B', 'B'],
+        ['B', 'G', 'G', 'B', 'B']
        ]
 
 # grid = [

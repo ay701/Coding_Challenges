@@ -90,17 +90,38 @@ def parse_urls(urls):
             stack.append((child, element[1]+1))
 
 
+# urls = [
+#     '/home/anti-depressants/xanax',
+#     '/home/heart/lipitor',
+#     '/home/heart/atorvastatin',
+#     '/home/heart/lipitor',
+#     '/home/heart/heart',
+#     '/drugs/nasal/flonase',
+#     '/drugs/topical',
+#     '/drugs/routes/oral/tablets',
+#     '/drugs/routes/nasal/flonase',
+# ]
+
+
+
 urls = [
-    '/home/anti-depressants/xanax',
-    '/home/heart/lipitor',
-    '/home/heart/atorvastatin',
-    '/home/heart/lipitor',
-    '/home/heart/heart',
-    '/drugs/nasal/flonase',
-    '/drugs/topical',
-    '/drugs/routes/oral/tablets',
-    '/drugs/routes/nasal/flonase',
+    '/home/products/electronic/tv/LG',
+    '/home/products/furniture/mattress',
+    '/home/news/sports/football/international',
+    '/home/news/sports/football/domestic',
+    '/home/news/sports/football/europe',
+    '/home/news/sports/football/china',
+    '/home/news/economics/usa/newyork',
+    '/home/news/economics/usa/boston',
+    '/home/news/economics/europe/germany',
+    '/home/stocks/finance/',
+    '/home/techs/phone/apple',
+    '/drugs/brand/abcbrand',
+    '/drugs/brand/efgbrand',
+    '/drugs/health/category/anti-old',
+    '/drugs/health/category/anti-cancer'
 ]
+
 
 parse_urls(urls)
 
