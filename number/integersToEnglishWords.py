@@ -10,6 +10,7 @@
 # Reference:
 # https://www.jianshu.com/p/a29a42152d70
 
+
 class Solution:
     def __init__(self):
         self.less_than_20 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven",
