@@ -1,3 +1,4 @@
+# Find maximum square root value
 # Liner approach by increasing number from 0, 1 ...
 # Until the result is larger than number, exit
 # Time complexity : N

@@ -1,5 +1,7 @@
 # LeetCode - Top K Frequent Elements
 # Given a non-empty array of integers, return the k most frequent elements.
+#
+# Typical bucket sort problem: Use count of frequency as bucket key, list of elements as value
 # https://www.youtube.com/watch?v=EYFcQRwcqk0
 
 
@@ -24,7 +26,7 @@ def top_k_frequent_elements(elements, n):
     print(bucket)
 
     # backward traverse bucket
-    for elements in reversed(bucket):
+    for elements in bucket[::-1]:
         for element in elements:
             result.append(element)
             print(result, len(result), n)
@@ -34,7 +36,7 @@ def top_k_frequent_elements(elements, n):
 
     return []
 
-print(top_k_frequent_elements([1,2,2,3,3,3,5,5,5,6,4], 2))
+print(top_k_frequent_elements([1, 2, 2, 3, 3, 3, 5, 5, 5, 6, 4], 2))
 
 # Time Complexity: O(N)  -> O(N+N+N)
 # Space Complexity: O(N)  -> Bucket Size + Dictionary Size
