@@ -4,21 +4,21 @@
 # [[1,2,3], [1,3,2], [3,2,1], [3,1,2], [2,3,1], [2,1,3]]
 
 
-def permutations(numbers):
-    n = len(numbers)
+def permutations(nums):
+    n = len(nums)
 
     if n == 0:
         return []
     elif n == 1:
-        return [numbers]
+        return [nums]
     else:
         output = []
 
         for i in range(n):
-            sub_numbers = permutations(numbers[0:i]+numbers[i+1:n])
+            sub_nums = permutations(nums[0:i]+nums[i+1:n])
 
-            for cur_number in sub_numbers:
-                tmp = cur_number + [numbers[i]]
+            for sub_num in sub_nums:
+                tmp = sub_num + [nums[i]]
                 output += [tmp] if tmp not in output else []
 
         return output
@@ -29,4 +29,3 @@ def permutations(numbers):
 # print(len(permutations([1,2,3,5,6])))
 print(permutations([1, 2, 2]))
 print(permutations([1, 2, 3]))
-
