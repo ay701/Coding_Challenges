@@ -46,33 +46,33 @@ def longest_substring_without_repeat_2(s):
 
     n = len(s)
 
-    if n < 1:
+    if n <= 1:
         return s
 
-    start = 0
-    end = 0
+    i = 0
+    longest = s[0:1]
+    result = s[0:1]
 
-    longest = ""
-    my_set = set()
+    for j in range(1, n):
+        cur = s[j]
 
-    while end < n:
-        end += 1
-        cur = s[end-1]
+        # If not in result, update result
+        if cur not in longest:
+            print(longest)
 
-        # If not in set, add to set, update values
-        if cur not in my_set:
-            my_set.add(cur)
-
-            if end - start > len(longest):
-                longest = s[start:end]
+            if j+1-i > len(longest):
+                longest = s[i:j+1]
+                result = s[i:j+1]
+                print("result: " + result)
         else:
             # Move first pointer, clear set
-            for i in range(start, end-1):
-                if s[i] == cur:
-                    start = i+1
-                    end = start
-            my_set.clear()
+            for index in range(i, j+1):
+                if s[index] == cur:
+                    i = index+1
+                    j = i+1
+                    longest = s[i:j]
+                    break
 
-    return longest
+    return result
 
 print longest_substring_without_repeat_2("abcadbef")
