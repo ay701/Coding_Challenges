@@ -3,6 +3,15 @@
 # https://www.youtube.com/watch?v=13m9ZCB8gjw
 
 
+# A Binary tree node
+class Node:
+    # Constructor to create a new node
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+
 def lca(root, x, y):
     if root is None or root == x or root == y:
         return root
@@ -24,16 +33,6 @@ def lca(root, x, y):
 
 # A recursive python program to find LCA of two nodes
 # n1 and n2
-
-# A Binary tree node
-class Node:
-    # Constructor to create a new node
-    def __init__(self, data):
-        self.data = data
-        self.left = None
-        self.right = None
-
-
 # Function to find LCA of n1 and n2. The function assumes
 # that both n1 and n2 are present in BST
 def lca(root, n1, n2):
