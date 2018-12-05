@@ -1,8 +1,7 @@
 # Recursion
-
 def permutation(st):
-    if len(st)<=1:
-        return st
+    if len(st) <= 1:
+        return [st]
 
     output = []
 
@@ -12,16 +11,16 @@ def permutation(st):
 
     return output
 
-# print permutation("yesa")
+print permutation("yesa")
+
 
 # Iteration
-
 def permute_iter(st):
     
     length = len(st)
 
-    if length<=1:
-        return st
+    if length <= 1:
+        return [st]
     
     output = [st[0]]
     st = st[1:]
@@ -39,4 +38,4 @@ def permute_iter(st):
 
     return output
 
-print permute_iter("yesd")
+# print permute_iter("yesd")
