@@ -3,12 +3,12 @@
 
 # https://www.geeksforgeeks.org/find-length-largest-region-boolean-matrix/
 
-'''
-0 1 0 1 0
-0 1 0 1 1
-0 0 1 0 1
-0 1 1 0 0
-'''
+# '''
+# 0 1 0 1 0
+# 0 1 0 1 1
+# 0 0 1 0 1
+# 0 1 1 0 0
+# '''
 
 # DFS
 
@@ -38,8 +38,7 @@ class Solution:
                 if self.is_valid(x, y):
                     cnt = [1]
                     self.dfs(x, y, cnt)
-
-                    max_ = max(max_, cnt[0])
+                    max_ = max(1, cnt[0])
                         
         return max_
     
